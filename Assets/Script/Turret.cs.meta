@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/LevelManager.cs.meta
+guid: 9b82dae7bbc8b8f48872443378d12134
+=======
+guid: 0c924d0afdcd247f8b442ca416047a95
+>>>>>>> c53502dc1058e6f3e6ee8d81411631b4e4b24557:Assets/Script/Turret.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
