@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(turretRotationPoint.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
 
         if (hits.Length > 0)
         {
@@ -58,7 +58,7 @@ public class Turret : MonoBehaviour
     {
 
         Handles.color = Color.red;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
+        Handles.DrawWireDisc(turretRotationPoint.position, transform.forward, targetingRange);
         
     }
 
