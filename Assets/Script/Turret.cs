@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour
 
     private void FindTarget()
     {
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(turretRotationPoint.position, targetingRange, (Vector2)transform.position, 0f, enemyMask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(turretRotationPoint.position, targetingRange, (Vector2)turretRotationPoint.position, 0f, enemyMask);
 
         if (hits.Length > 0)
         {
@@ -43,12 +43,12 @@ public class Turret : MonoBehaviour
 
     private bool CheckTargetIsInRange()
     {
-        return Vector2.Distance(target.position, transform.position) <= targetingRange;
+        return Vector2.Distance(target.position, turretRotationPoint.position) <= targetingRange;
     }
 
     private void RotateTowardTarget()
     {
-        float angle = Mathf.Atan2(target.position.y - transform.position.y, target.position.x - transform.position.x) * Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(target.position.y - turretRotationPoint.position.y, target.position.x - turretRotationPoint.position.x) * Mathf.Rad2Deg - 90f;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -56,9 +56,9 @@ public class Turret : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-
+        //Draw 2D circle
         Handles.color = Color.cyan;
-        Handles.DrawWireDisc(turretRotationPoint.position, transform.forward, targetingRange);
+        Handles.DrawWireDisc(turretRotationPoint.position, turretRotationPoint.forward, targetingRange);
 
     }
 
