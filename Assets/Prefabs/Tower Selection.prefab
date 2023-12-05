@@ -263,7 +263,15 @@ PrefabInstance:
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 5932382094283228746, guid: 1061d04771454ee48af578bd11ac714f, type: 3}
+      objectReference: {fileID: 7879223022631361293, guid: 672e1ec6e09a749fc847eedb43328536, type: 3}
+    - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.47
+      objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.71
@@ -304,6 +312,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3702093283757894151, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 30258eeefbadc4c21baba87749249491, type: 3}
     - target: {fileID: 5815681340994520436, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_Name
       value: Tower Option 1
