@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class EnemyMovement : MonoBehaviour
 {
-
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
@@ -16,20 +13,22 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int pathIndex = 0;
 
-
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        target = LevelManager.main.path[pathIndex];
+        target = LevelManager.main.path[0];
     }
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
             pathIndex++;
 
-            if (pathIndex == LevelManager.main.path.Length)
+            if (pathIndex >= LevelManager.main.path.Length)
             {
+                EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
                 return;
             }
@@ -46,6 +45,4 @@ public class EnemyMovement : MonoBehaviour
 
         rb.velocity = direction * moveSpeed;
     }
-
-
 }
