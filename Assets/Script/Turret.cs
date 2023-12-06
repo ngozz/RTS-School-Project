@@ -2,18 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+    //[SerializeField] private GameObject upgradeUI;
+    //[SerializeField] private Button upgradeButton;
+
+    [SerializeField] private GameObject towerSelectionPrefab;
+    private GameObject towerSelectionInstance;
+    private bool isClicked = false;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
     [SerializeField] private float rotationSpeed = 200f;
+    [SerializeField] private float bps = 1f;//bullet per second
 
     private Transform target;
+    private float timeUntilFire;
+
+    void OnMouseDown()
+    {
+        if (!isClicked)
+        {
+            isClicked = true;
+            towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+        }
+    }
 
     private void Update()
     {
@@ -28,7 +48,29 @@ public class Turret : MonoBehaviour
         if (!CheckTargetIsInRange())
         {
             target = null;
+        } else {
+            timeUntilFire += Time.deltaTime;
+
+            if (timeUntilFire >= 1f / bps)
+            {
+                Shoot();
+                timeUntilFire = 0f;
+            }
         }
+        
+        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
+        }
+    }
+
+    private void Shoot()
+    {
+        GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
+        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+        bulletScript.SetTarget(target);
+
     }
 
     private void FindTarget()
@@ -54,6 +96,15 @@ public class Turret : MonoBehaviour
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
+    //public void OpenUpgradeUI()
+    //{
+    //    upgradeUI.SetActive(true);
+    //}
+
+    //public void CloseUpgrade()
+    //{
+    //    upgradeUI.SetActive(false);
+    //}
     private void OnDrawGizmosSelected()
     {
         //Draw 2D circle
@@ -62,4 +113,29 @@ public class Turret : MonoBehaviour
 
     }
 
+    IEnumerator CheckForClicksOutside()
+    {
+        // Wait for a short moment before checking for the click
+        yield return new WaitForSeconds(0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bool isClickedOnOption = false;
+            foreach (Transform option in towerSelectionInstance.transform)
+            {
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                {
+                    isClickedOnOption = true;
+                    break;
+                }
+            }
+            if (!isClickedOnOption)
+            {
+                Destroy(towerSelectionInstance);
+                isClicked = false;
+                Debug.Log("Destroy");
+            }
+        }
+    }
 }
