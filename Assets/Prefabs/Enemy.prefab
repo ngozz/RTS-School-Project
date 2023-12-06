@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827003656404244706}
   - component: {fileID: 7450169743942147978}
+  - component: {fileID: 8494771025991516395}
   - component: {fileID: 7579469672904247714}
   - component: {fileID: 1236618407253230901}
   m_Layer: 6
@@ -86,8 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
-=======
 --- !u!114 &8494771025991516395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1236618407253230901}
   moveSpeed: 2
->>>>>>> b2477b46bc224f02e5bd50794fe6852ddede12d5
 --- !u!95 &7579469672904247714
 Animator:
   serializedVersion: 5
