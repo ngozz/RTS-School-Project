@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4927998098062827991, guid: 61fd50f8054654b1a81d32f4c0952ce3, type: 3}
+  - {fileID: 4922535264010646555, guid: 10cb66eddff1b4b71a32d99160060a43, type: 3}
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
@@ -446,8 +446,11 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  bulletPrefab: {fileID: 6760143967550101966, guid: 83491a0e2e696ca4691c4cd36618afa2, type: 3}
+  firingPoint: {fileID: 0}
   targetingRange: 5
-  rotationSpeed: 5
+  rotationSpeed: 150
+  bps: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1117,7 @@ Transform:
   m_GameObject: {fileID: 1315266838}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5690652, y: 0.030618578, z: -0.9279744}
+  m_LocalPosition: {x: 0.59, y: 0.08, z: -0.9279744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1209,9 +1212,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381759263}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.0678412, w: 0.99769616}
-  m_LocalPosition: {x: -1.41, y: 0.53, z: 0}
-  m_LocalScale: {x: 0.4947, y: 0.4947, z: 0.4947}
+  m_LocalRotation: {x: -0, y: -0, z: -0.040306162, w: 0.9991874}
+  m_LocalPosition: {x: 0.019, y: 0.018, z: 0}
+  m_LocalScale: {x: 0.49470007, y: 0.49470007, z: 0.4947}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1455074748}
@@ -1241,7 +1244,7 @@ SpriteRenderer:
     firstSubMesh: 0
     subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
+  m_ProbeAnchor: {fileID: 3652882408802117223, guid: 10cb66eddff1b4b71a32d99160060a43, type: 3}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_ReceiveGI: 1
@@ -1417,14 +1420,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455074747}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.06845051, w: 0.99765456}
-  m_LocalPosition: {x: 0.25427842, y: 0.18889576, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.07114935, w: 0.9974657}
+  m_LocalPosition: {x: -0.86, y: 0.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1381759264}
   m_Father: {fileID: 475152290}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -7.85}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.16}
 --- !u!1 &1492355506
 GameObject:
   m_ObjectHideFlags: 0
