@@ -382,8 +382,12 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
+  bulletPrefab: {fileID: 0}
+  firingPoint: {fileID: 0}
+  towerSelectionPrefab: {fileID: 0}
   targetingRange: 4
   rotationSpeed: 200
+  bps: 1
 --- !u!1 &785740395
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +618,7 @@ MonoBehaviour:
   - {fileID: 785740396}
   - {fileID: 1839451390}
   - {fileID: 1852439158}
+  currency: 0
 --- !u!4 &1049546252
 Transform:
   m_ObjectHideFlags: 0
