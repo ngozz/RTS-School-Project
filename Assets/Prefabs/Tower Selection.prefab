@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 7879223022631361293, guid: 672e1ec6e09a749fc847eedb43328536, type: 3}
+      objectReference: {fileID: 3404161009692425384, guid: 80b359c4572b5ab4aa7686b88d0fecb7, type: 3}
     - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.26
@@ -196,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7573974
+      value: 0.772
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6043644
+      value: 0.618
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.z

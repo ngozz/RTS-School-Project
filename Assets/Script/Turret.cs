@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
@@ -10,6 +11,12 @@ public class Turret : MonoBehaviour
     [SerializeField] private LayerMask enemyMask;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    //[SerializeField] private GameObject upgradeUI;
+    //[SerializeField] private Button upgradeButton;
+
+    [SerializeField] private GameObject towerSelectionPrefab;
+    private GameObject towerSelectionInstance;
+    private bool isClicked = false;
 
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 5f;
@@ -18,6 +25,15 @@ public class Turret : MonoBehaviour
 
     private Transform target;
     private float timeUntilFire;
+
+    void OnMouseDown()
+    {
+        if (!isClicked)
+        {
+            isClicked = true;
+            towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+        }
+    }
 
     private void Update()
     {
@@ -40,6 +56,12 @@ public class Turret : MonoBehaviour
                 Shoot();
                 timeUntilFire = 0f;
             }
+        }
+        
+        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
         }
     }
 
@@ -74,6 +96,15 @@ public class Turret : MonoBehaviour
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
+    //public void OpenUpgradeUI()
+    //{
+    //    upgradeUI.SetActive(true);
+    //}
+
+    //public void CloseUpgrade()
+    //{
+    //    upgradeUI.SetActive(false);
+    //}
     private void OnDrawGizmosSelected()
     {
         //Draw 2D circle
@@ -82,4 +113,29 @@ public class Turret : MonoBehaviour
 
     }
 
+    IEnumerator CheckForClicksOutside()
+    {
+        // Wait for a short moment before checking for the click
+        yield return new WaitForSeconds(0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bool isClickedOnOption = false;
+            foreach (Transform option in towerSelectionInstance.transform)
+            {
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                {
+                    isClickedOnOption = true;
+                    break;
+                }
+            }
+            if (!isClickedOnOption)
+            {
+                Destroy(towerSelectionInstance);
+                isClicked = false;
+                Debug.Log("Destroy");
+            }
+        }
+    }
 }
