@@ -803,7 +803,7 @@ MonoBehaviour:
     m_Bits: 64
   bulletPrefab: {fileID: 6760143967550101966, guid: 83491a0e2e696ca4691c4cd36618afa2, type: 3}
   firingPoint: {fileID: 8911882982578254752}
-  towerSelectionPrefab: {fileID: 7660291941831594337, guid: 3597b6d81686da94d8fbc6c838f866cd, type: 3}
+  towerSelectionPrefab: {fileID: 3405297282154475714, guid: ba87658ff82c12e4a82ebf3b08440592, type: 3}
   targetingRange: 3
   rotationSpeed: 499.5
   bps: 1
