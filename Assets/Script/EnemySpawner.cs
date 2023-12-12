@@ -61,7 +61,6 @@ public class EnemySpawner : MonoBehaviour
     {
         Debug.Log("Destroy");
         enemiesAlive--;
-        LevelManager.main.LifeLeft--;
     }
 
     private IEnumerator StartWave()
