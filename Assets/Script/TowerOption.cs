@@ -18,7 +18,7 @@ public class TowerOption : MonoBehaviour
         else
         {
             Debug.Log("You do not have enough to purchase this item");
-            Destroy(transform.parent.parent.gameObject);
+            Destroy(transform.parent.gameObject);
         }
     }
 

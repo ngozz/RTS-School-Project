@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     public int currency;
     public int LifeLeft = 20;
     public TextMeshProUGUI Life;
+    public TextMeshProUGUI Gold;
 
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
+        Gold.text = currency.ToString();
         Life.text = LifeLeft.ToString();
     }
 }

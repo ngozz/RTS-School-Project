@@ -1558,6 +1558,7 @@ MonoBehaviour:
   currency: 0
   LifeLeft: 20
   Life: {fileID: 9591366}
+  Gold: {fileID: 605156315}
 --- !u!4 &1049546252
 Transform:
   m_ObjectHideFlags: 0
