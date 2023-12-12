@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void EnemyDestroyed()
     {
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
         enemiesAlive--;
     }
 

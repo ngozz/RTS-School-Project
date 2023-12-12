@@ -23,8 +23,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start() 
     {
-        Life = FindObjectOfType<TextMeshProUGUI>();
-        currency = 100;
+        currency = 300;
     }
 
     public void IncreaseCurrency(int amount) {
