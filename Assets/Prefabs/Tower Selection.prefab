@@ -175,6 +175,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6921577851608962035}
     m_Modifications:
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: cost
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
       objectReference: {fileID: 764510663866134893, guid: 0df201dc645b83a40947955d2c43273b, type: 3}
