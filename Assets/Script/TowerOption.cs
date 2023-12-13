@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class TowerOption : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject towerPrefab;
+    [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private int price;
 
     void OnMouseDown()
     {
-        Instantiate(towerPrefab, transform.parent.position, Quaternion.identity);
-        Destroy(transform.parent.parent.gameObject);
+        if (price <= LevelManager.main.currency)
+        {
+            LevelManager.main.currency -= price;
+            Instantiate(towerPrefab, transform.parent.position, Quaternion.identity);
+            Destroy(transform.parent.parent.gameObject);
+        }
+        else
+        {
+            Debug.Log("You do not have enough to purchase this item");
+            Destroy(transform.parent.gameObject);
+        }
     }
 
 }

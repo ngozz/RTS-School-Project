@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Scripting;
+using TMPro;
 
 public class LevelManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class LevelManager : MonoBehaviour
     public Transform[] path;
 
     public int currency;
+    public int LifeLeft = 20;
+    public TextMeshProUGUI Life;
+    public TextMeshProUGUI Gold;
 
     private void Awake()
     {
@@ -20,7 +24,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start() 
     {
-        currency = 100;
+        currency = 300;
     }
 
     public void IncreaseCurrency(int amount) {
@@ -35,5 +39,11 @@ public class LevelManager : MonoBehaviour
             Debug.Log("You do not have enough to purchase this item");
             return false;
         }
+    }
+
+    private void Update()
+    {
+        Gold.text = currency.ToString();
+        Life.text = LifeLeft.ToString();
     }
 }
