@@ -20,7 +20,6 @@ public class TowerSpot : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
         if (isClicked)
         {
             StartCoroutine(CheckForClicksOutside());
