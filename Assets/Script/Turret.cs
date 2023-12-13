@@ -37,6 +37,11 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
+        }
         if (target == null)
         {
             FindTarget();
@@ -56,12 +61,6 @@ public class Turret : MonoBehaviour
                 Shoot();
                 timeUntilFire = 0f;
             }
-        }
-        
-        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
-        if (isClicked)
-        {
-            StartCoroutine(CheckForClicksOutside());
         }
     }
 

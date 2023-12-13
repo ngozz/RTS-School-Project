@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
+    //Update wave No 
     private void Update()
     {
         Wave.text = "Wave" + " " + currentWave.ToString() + " / 5";
