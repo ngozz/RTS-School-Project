@@ -11,7 +11,7 @@ public class TowerOption : MonoBehaviour
     {
         if (price <= LevelManager.main.currency)
         {
-            LevelManager.main.SpendCurrency(price);
+            LevelManager.main.currency -= price;
             Instantiate(towerPrefab, transform.parent.position, Quaternion.identity);
             Destroy(transform.parent.parent.gameObject);
         }
