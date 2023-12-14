@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6200525173701107860}
   - component: {fileID: 6128399289041653949}
-  - component: {fileID: 867541953217217323}
+  - component: {fileID: 2490834220005299424}
   m_Layer: 0
   m_Name: Tower upgrade option 4
   m_TagString: Untagged
@@ -79,7 +79,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83658427, y: 0.70985353}
   m_EdgeRadius: 0
---- !u!114 &867541953217217323
+--- !u!114 &2490834220005299424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151764498213048215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774f5e4e62758ce4f97e5c8cdf8284f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 53333f0dd54f5934d845f1955c0f50ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 0}
-  price: -70
+  towerSpot: {fileID: 6477217756660578991, guid: 691e17a73fc398540b8f1acc8d6c99ea, type: 3}
+  price: 70
 --- !u!1 &1382333401476138591
 GameObject:
   m_ObjectHideFlags: 0
