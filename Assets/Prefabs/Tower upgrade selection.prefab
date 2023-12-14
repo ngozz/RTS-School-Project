@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 0}
+  price: -70
 --- !u!1 &1382333401476138591
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 4235456272453071403, guid: 3cf8ec31e1ffb074db2f0f2525fee44a, type: 3}
+  price: 0
 --- !u!1 &3405297282154475714
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3874979980111389066, guid: eed34470df1cfc8489d5689ab29508b3, type: 3}
+  price: 0
 --- !u!1 &7880834076169165053
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 7220501159891132850, guid: 0fc40defe4d434aa487d9041964b6feb, type: 3}
+  price: 110
 --- !u!1001 &290878611259350592
 PrefabInstance:
   m_ObjectHideFlags: 0
