@@ -175,12 +175,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 6921577851608962035}
     m_Modifications:
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: cost
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: price
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 3404161009692425384, guid: 80b359c4572b5ab4aa7686b88d0fecb7, type: 3}
+      objectReference: {fileID: 764510663866134893, guid: 0df201dc645b83a40947955d2c43273b, type: 3}
     - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.26
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalScale.x
@@ -196,11 +204,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7573974
+      value: 0.772
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6043644
+      value: 0.618
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -237,7 +245,7 @@ PrefabInstance:
     - target: {fileID: 3702093283757894151, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 44b99fdc774b247cb988fc9e78617dc4, type: 3}
+      objectReference: {fileID: 21300000, guid: 210c1f91a400a442ba8ab23e466bc099, type: 3}
     - target: {fileID: 5815681340994520436, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_Name
       value: Tower Option 2
@@ -260,6 +268,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6921577851608962035}
     m_Modifications:
+    - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: price
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
@@ -310,6 +322,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702093283757894151, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3702093283757894151, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}

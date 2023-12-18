@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 2367552355623550504}
   - component: {fileID: 8962327974235479541}
   - component: {fileID: 1808920998469340389}
-  m_Layer: 0
+  - component: {fileID: -4490940559802922414}
+  m_Layer: 6
   m_Name: Enemy-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 5072027589851333136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.79, y: -3.87, z: -1}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -8.2846, y: -4.3376, z: -1}
+  m_LocalScale: {x: 0.4734538, y: 0.47743016, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -147,7 +148,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 5072027589851333136}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -185,3 +186,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4490940559802922414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072027589851333136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1d5a9913d6d479bb6857fadb935680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 7
+  currencyWorth: 20

@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    public TextMeshProUGUI Wave;
 
     private void Awake()
     {
@@ -35,8 +37,10 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(StartWave());
     }
 
+    //Update wave No 
     private void Update()
     {
+        Wave.text = "Wave" + " " + currentWave.ToString() + " / 5";
         if (!isSpawning) { return; }
         timeSinceLastSpawn += Time.deltaTime;
 
@@ -52,12 +56,11 @@ public class EnemySpawner : MonoBehaviour
         {
             EndWave();
         }
-
     }
 
     private void EnemyDestroyed()
     {
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
         enemiesAlive--;
     }
 

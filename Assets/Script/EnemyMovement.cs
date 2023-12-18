@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
+                LevelManager.main.LifeLeft--;
                 return;
             }
             else
