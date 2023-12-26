@@ -11,6 +11,10 @@ public class MagicTowerLevel1_1 : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] private Transform TowerBase;
 
+    [SerializeField] private GameObject towerSelectionPrefab;
+    private GameObject towerSelectionInstance;
+    private bool isClicked = false;
+
     [Header("Attribute")]
     [SerializeField] private float targetingRange = 3f;
     [SerializeField] private float bps = 1f;//bullet per second
@@ -18,8 +22,23 @@ public class MagicTowerLevel1_1 : MonoBehaviour
     private Transform target;
     private float timeUntilFire;
 
+    void OnMouseDown()
+    {
+        if (!isClicked)
+        {
+            isClicked = true;
+            towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+            OnDrawGizmosSelected();
+        }
+    }
+
     private void Update()
     {
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
+        }
+
         if (target == null)
         {
             FindTarget();
@@ -71,5 +90,31 @@ public class MagicTowerLevel1_1 : MonoBehaviour
         Handles.color = Color.cyan;
         Handles.DrawWireDisc(TowerBase.position, TowerBase.forward, targetingRange);
 
+    }
+
+    IEnumerator CheckForClicksOutside()
+    {
+        // Wait for a short moment before checking for the click
+        yield return new WaitForSeconds(0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bool isClickedOnOption = false;
+            foreach (Transform option in towerSelectionInstance.transform)
+            {
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                {
+                    isClickedOnOption = true;
+                    break;
+                }
+            }
+            if (!isClickedOnOption)
+            {
+                Destroy(towerSelectionInstance);
+                isClicked = false;
+                Debug.Log("Destroy");
+            }
+        }
     }
 }

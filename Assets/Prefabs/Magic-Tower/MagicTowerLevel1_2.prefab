@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 6194647567252941416}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.861833, y: -0.3006847, z: 0.25966287}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,9 +216,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   bulletPrefab: {fileID: 6760143967550101966, guid: 83491a0e2e696ca4691c4cd36618afa2, type: 3}
   firingPoint: {fileID: 7023866560106552443}
   TowerBase: {fileID: 6662543303019332321}
+  towerSelectionPrefab: {fileID: 0}
   targetingRange: 3
   bps: 1

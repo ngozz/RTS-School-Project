@@ -32,6 +32,7 @@ public class Turret : MonoBehaviour
         {
             isClicked = true;
             towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+            OnDrawGizmosSelected();
         }
     }
 

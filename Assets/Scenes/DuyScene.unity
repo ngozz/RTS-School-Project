@@ -1628,6 +1628,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4981872022020183304, guid: d6995874de419df4c9b0207e93df7232, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1738,6 +1742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 89034675}
     m_Modifications:
+    - target: {fileID: 4928296878738123711, guid: 93d20e097211e3b408fde6f7fe087379, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6398677860344818902, guid: 93d20e097211e3b408fde6f7fe087379, type: 3}
       propertyPath: m_Name
       value: Wave
