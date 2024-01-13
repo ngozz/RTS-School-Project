@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float moveSpeed = 2f;
-
+    [SerializeField] private int livesTaken;
     private Transform target;
     private int pathIndex = 0;
 
@@ -30,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 EnemySpawner.onEnemyDestroy.Invoke();
                 Destroy(gameObject);
-                LevelManager.main.LifeLeft--;
+                LevelManager.main.LifeLeft -= livesTaken;
                 return;
             }
             else
