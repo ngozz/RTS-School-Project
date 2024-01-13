@@ -1532,7 +1532,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 5072027589851333136, guid: 4a5808d6eef035c44a0d4d0856aba095, type: 3}
   baseEnemies: 20
-  enemiesPerSecond: 0.1
+  enemiesPerSecond: 0.5
   timeBetweenWaves: 5
   difficultyScalingFactor: 0.75
   Wave: {fileID: 1769173294}
