@@ -5,13 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using TMPro;
-using System;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private GameObject enemySpawnSooner;
 
     [Header("Attributes")]
     [SerializeField] private int baseEnemies = 8;
@@ -27,7 +25,6 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
-    private bool SpawningSooner = false;
     public TextMeshProUGUI Wave;
 
     private void Awake()
@@ -37,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartGame());
+        StartCoroutine(StartWave());
     }
 
     //Update wave No 
@@ -45,14 +42,9 @@ public class EnemySpawner : MonoBehaviour
     {
         Wave.text = "Wave" + " " + currentWave.ToString() + " / 5";
         if (!isSpawning) { return; }
-
-        /*if(currentWave == 0)
-        {
-
-        }*/
         timeSinceLastSpawn += Time.deltaTime;
 
-        if (isSpawning)//timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
+        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
         {
             SpawnEnemy();
             enemiesLeftToSpawn--;
@@ -72,25 +64,11 @@ public class EnemySpawner : MonoBehaviour
         enemiesAlive--;
     }
 
-    private void StartWave()
+    private IEnumerator StartWave()
     {
+        yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
         enemiesLeftToSpawn = EnemiesPerWave();
-    }
-
-    private IEnumerator StartGame()
-    {
-        if (SpawningSooner == true)
-        {
-            StartWave();
-        }
-        else { yield return null; }
-    }
-
-    public void SpawnEnemiesSooner()
-    {
-        SpawningSooner = true;
-        Destroy(enemySpawnSooner);
     }
 
     private void EndWave()
@@ -98,13 +76,13 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartGame());
+        StartCoroutine(StartWave());
     }
 
     private void SpawnEnemy()
     {
-        //int randomIndex = Random.Range(0, enemyPrefabs.Length);
-        GameObject prefabToSpawn = enemyPrefabs[0];
+        int randomIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject prefabToSpawn = enemyPrefabs[randomIndex];
         Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
     }
 
