@@ -41,7 +41,7 @@ public class Map01_EnemySpawner : MonoBehaviour
 
         if(EnemiesLeftToSpawn == 0)
         {
-            SpawnEnemy();
+            CallEnemySooner();
 
         }
     }
@@ -75,6 +75,11 @@ public class Map01_EnemySpawner : MonoBehaviour
 
     private int EnemiesPerWave()
     {
-        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
+        return Mathf.RoundToInt(8 * Mathf.Pow(currentWave, difficultyScalingFactor));
+    }
+
+    private void CallEnemySooner()
+    {
+        
     }
 }
