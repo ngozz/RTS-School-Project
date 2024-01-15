@@ -1576,7 +1576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 7380026455122693314, guid: 459bb9ba31b525d4c8a8306511fe8008, type: 3}
-  enemySpawnSooner: {fileID: 0}
   baseEnemies: 8
   enemiesPerSecond: 0.5
   timeBetweenWaves: 5
