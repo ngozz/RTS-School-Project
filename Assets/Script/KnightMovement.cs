@@ -44,7 +44,7 @@ public class KnightMovement : MonoBehaviour
             if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos))
             {
                 Debug.Log("Clicked on " + gameObject.name);
-                isSelected = true;
+                isSelected = !isSelected;
             }
             else if (isSelected)
             {
