@@ -5,16 +5,26 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private int hitPoints = 10;
+    [SerializeField] private int health,maxHealth = 10;
     [SerializeField] private int currencyWorth = 50;
+    [SerializeField] FloatingHB healthBar;
 
     private bool isDestroyed = false;
-
+    private void Start()
+    {
+        health = maxHealth;
+        healthBar.UpdateHealthBar(health, maxHealth);
+    }
+    private void Awake()
+    {
+        healthBar =GetComponentInChildren<FloatingHB>();
+    }
     public void TakeDamage(int dmg)
     {
-        hitPoints -= dmg;
+        health -= dmg;
+        healthBar.UpdateHealthBar(health,maxHealth);
 
-        if (hitPoints <= 0 && !isDestroyed)
+        if (health <= 0 && !isDestroyed)
         {
             EnemySpawner.onEnemyDestroy.Invoke();
             LevelManager.main.IncreaseCurrency(currencyWorth);
