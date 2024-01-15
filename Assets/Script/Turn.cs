@@ -10,7 +10,7 @@ public class Turn : MonoBehaviour
     {
         lastX = transform.position.x;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        facingRight = !spriteRenderer.flipX;
+        facingRight = transform.localScale.x > 0;
     }
 
     void Update()
@@ -28,6 +28,14 @@ public class Turn : MonoBehaviour
     void Flip()
     {
         facingRight = !facingRight;
-        spriteRenderer.flipX = !spriteRenderer.flipX;
+
+        // Get the current local scale
+        Vector3 theScale = transform.localScale;
+
+        // Flip the x axis
+        theScale.x *= -1;
+
+        // Apply the new local scale
+        transform.localScale = theScale;
     }
 }
