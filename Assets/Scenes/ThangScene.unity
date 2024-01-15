@@ -1278,11 +1278,11 @@ Transform:
   m_GameObject: {fileID: 547282100}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8817.005}
-  m_LocalScale: {x: 97.96672, y: 97.96672, z: 97.96672}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1938432415}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562306183
 GameObject:
@@ -1344,9 +1344,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759928612}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.66, y: -4.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -750.42505, y: -434.97226, z: -8817.005}
+  m_LocalScale: {x: 97.96672, y: 97.96672, z: 97.96672}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 152597691}
@@ -1385,7 +1385,7 @@ Transform:
   - {fileID: 1641201622}
   - {fileID: 328091417}
   - {fileID: 1339829505}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1938432415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &767871203
 GameObject:
@@ -2864,7 +2864,7 @@ GameObject:
   - component: {fileID: 1938432413}
   - component: {fileID: 1938432412}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2946,10 +2946,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2022577043}
-  - {fileID: 547282103}
   - {fileID: 356920944}
   - {fileID: 3877438}
   - {fileID: 2045909613}
+  - {fileID: 759928613}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3273,7 +3273,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 767871206}
   - {fileID: 833732428}
+  - {fileID: 547282103}
   - {fileID: 1938432415}
   - {fileID: 1275876781}
-  - {fileID: 759928613}
   - {fileID: 1722909810}
