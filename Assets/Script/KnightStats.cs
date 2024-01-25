@@ -22,10 +22,11 @@ public class KnightStats : MonoBehaviour
     private float healthRegenDelayTimer = 0f;
 
     private float lastRegenTime = 0f;
-    [SerializeField] private FloatingHB healthBar;
+    private FloatingHB healthBar;
 
     void Start()
     {
+        healthBar = GetComponentInChildren<FloatingHB>();
         animator = GetComponent<Animator>();
         if (animator == null)
         {
@@ -35,6 +36,7 @@ public class KnightStats : MonoBehaviour
 
     void Update()
     {
+        healthBar.UpdateHealthBar(currentHealth, maxHealth);
         if (!isDead)
         {
             RegenHealth();
@@ -76,7 +78,6 @@ public class KnightStats : MonoBehaviour
     {
         currentHealth -= damage;
         healthRegenDelayTimer = 0f;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
         if (currentHealth <= 0)
         {
             isDead = true;
@@ -114,7 +115,6 @@ public class KnightStats : MonoBehaviour
         animator.SetTrigger("Respawn");
         currentHealth = maxHealth / 2;
         healthRegenDelayTimer = 0f;
-        healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
     public bool IsDead()
