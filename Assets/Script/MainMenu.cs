@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject SettingScene;
+    [SerializeField] private GameObject SelectMap;
 
     private void Start()
     {
@@ -17,5 +18,11 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(state);
         SettingScene.SetActive(!state);
+    }
+
+    public void ActivateSelectMap(bool state)
+    {
+        mainMenu.SetActive(state);
+        SelectMap.SetActive(!state);
     }
 }
