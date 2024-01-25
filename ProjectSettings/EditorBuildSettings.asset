@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: ed0de68a1a67ab547b55875caa4595cc
   - enabled: 1
+    path: Assets/Scenes/SelectMap.unity
+    guid: cd328424b4d03624bae95f53a29d1cf9
+  - enabled: 1
     path: Assets/Scenes/DuyScene.unity
     guid: 727f56132829683489f62ff94123e8b8
   - enabled: 1
