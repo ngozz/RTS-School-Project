@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Knight
+<<<<<<< HEAD
+=======
+  - Tower
+>>>>>>> fd0880c7c2759effd7c9f2a8f465c156423852a7
   layers:
   - Default
   - TransparentFX

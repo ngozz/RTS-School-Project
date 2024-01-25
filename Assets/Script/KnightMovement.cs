@@ -40,11 +40,12 @@ public class KnightMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D clickedCollider = Physics2D.OverlapPoint(mousePos);
 
-            if (GetComponent<Collider2D>() == Physics2D.OverlapPoint(mousePos))
+            if (GetComponent<Collider2D>() == clickedCollider || (clickedCollider != null && clickedCollider.tag == "Tower"))
             {
                 Debug.Log("Clicked on " + gameObject.name);
-                isSelected = true;
+                isSelected = !isSelected;
             }
             else if (isSelected)
             {
@@ -52,6 +53,7 @@ public class KnightMovement : MonoBehaviour
                 isManualMove = true;
             }
         }
+
         Debug.Log("isManualMove: " + isManualMove);
 
         if (agent.velocity.magnitude > 0)

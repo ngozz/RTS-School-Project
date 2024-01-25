@@ -12,7 +12,7 @@ public class StoneTower : MonoBehaviour
     [SerializeField]
     private GameObject stoneSpawnPoint;
     [SerializeField]
-    private float fireRate = 3f;
+    private float stoneHangTime = 3f;
     [SerializeField]
     private float cooldown = 3f;
     private float timer = 0f;
@@ -25,7 +25,7 @@ public class StoneTower : MonoBehaviour
         timer += Time.deltaTime;
 
         // Check if the timer has reached the fire rate and the tower can shoot
-        if (timer >= fireRate && canShoot)
+        if (timer >= stoneHangTime && canShoot)
         {
             // Reset the timer
             timer = 0f;
@@ -96,7 +96,7 @@ public class StoneTower : MonoBehaviour
         // The distance ahead is proportional to the fireRate, plus an additional offset
         // Adjust these values as needed
         float offset = 0.5f; // This is the additional offset
-        Vector3 futureEnemyPosition = enemyPosition + enemyDirection * (fireRate + offset);
+        Vector3 futureEnemyPosition = enemyPosition + enemyDirection * (stoneHangTime + offset);
 
         // Get the direction of the future enemy position
         Vector3 direction = futureEnemyPosition - transform.position;
@@ -106,21 +106,21 @@ public class StoneTower : MonoBehaviour
         float verticalDistance = futureEnemyPosition.y - transform.position.y;
 
         // Split the fireRate into two halves: upwardTime and downwardTime
-        float upwardTime = fireRate / 2;
-        float downwardTime = fireRate / 2;
+        float upwardTime = stoneHangTime / 2;
+        float downwardTime = stoneHangTime / 2;
 
         // Adjust upwardTime and downwardTime based on the vertical distance
         if (verticalDistance > 0)
         {
             // The enemy is above
-            upwardTime += verticalDistance / 10; // Adjust this value as needed
-            downwardTime -= verticalDistance / 10; // Adjust this value as needed
+            upwardTime += verticalDistance / 10;
+            downwardTime -= verticalDistance / 10;
         }
         else
         {
             // The enemy is below
-            upwardTime -= Math.Abs(verticalDistance) / 10; // Adjust this value as needed
-            downwardTime += Math.Abs(verticalDistance) / 10; // Adjust this value as needed
+            upwardTime -= Math.Abs(verticalDistance) / 10;
+            downwardTime += Math.Abs(verticalDistance) / 10;
         }
 
         // Calculate the initial upward velocity needed to reach the peak in upwardTime seconds
@@ -128,7 +128,7 @@ public class StoneTower : MonoBehaviour
         float initialUpwardVelocity = Physics.gravity.magnitude * upwardTime;
 
         // Calculate the initial velocity needed to reach the future enemy's position in fireRate seconds
-        Vector3 initialVelocity = direction * (Vector3.Distance(transform.position, futureEnemyPosition) / fireRate);
+        Vector3 initialVelocity = direction * (Vector3.Distance(transform.position, futureEnemyPosition) / stoneHangTime);
 
         // Set the y component of the initial velocity to the initial upward velocity
         initialVelocity.y = initialUpwardVelocity;
@@ -137,7 +137,7 @@ public class StoneTower : MonoBehaviour
         Rigidbody2D stoneRb = stone.GetComponent<Rigidbody2D>();
         stoneRb.velocity = initialVelocity;
 
-        StartCoroutine(DestroyStoneAfterSeconds(stone, fireRate));
+        StartCoroutine(DestroyStoneAfterSeconds(stone, stoneHangTime));
     }
 
     private IEnumerator DestroyStoneAfterSeconds(GameObject stone, float seconds)
