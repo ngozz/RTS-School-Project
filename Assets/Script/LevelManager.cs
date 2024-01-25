@@ -46,4 +46,5 @@ public class LevelManager : MonoBehaviour
         Gold.text = currency.ToString();
         Life.text = LifeLeft.ToString();
     }
+
 }
