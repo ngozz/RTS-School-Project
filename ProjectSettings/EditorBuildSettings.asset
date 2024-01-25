@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/HoaScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/ThangScene.unity
-    guid: 385fe319a4e5faa439a9f6e8526fa21d
+    path: Assets/Scenes/Main Menu.unity
+    guid: ed0de68a1a67ab547b55875caa4595cc
   - enabled: 1
-    path: Assets/Scenes/Pause Menu.unity
-    guid: 21c9d85a30f7c9144b6ff9de68204cf8
+    path: Assets/Scenes/DuyScene.unity
+    guid: 727f56132829683489f62ff94123e8b8
+  - enabled: 1
+    path: Assets/Scenes/HoaScene-2.unity
+    guid: 2edaea7b3236e4b0080a6aae5ce26002
+  - enabled: 1
+    path: Assets/Scenes/HieuScene 2.unity
+    guid: 65ca5bcb17bd9a649824fa346e3384cf
   m_configObjects: {}
