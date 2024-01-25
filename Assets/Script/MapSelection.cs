@@ -21,4 +21,8 @@ public class MapSelection : MonoBehaviour
     public void OpenScene2() {
         SceneManager.LoadScene("HieuScene 2");
     }
+
+    public void OpenScene4() {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
