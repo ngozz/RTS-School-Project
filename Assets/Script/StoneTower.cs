@@ -113,14 +113,14 @@ public class StoneTower : MonoBehaviour
         if (verticalDistance > 0)
         {
             // The enemy is above
-            upwardTime += verticalDistance / 10; // Adjust this value as needed
-            downwardTime -= verticalDistance / 10; // Adjust this value as needed
+            upwardTime += verticalDistance / 10;
+            downwardTime -= verticalDistance / 10;
         }
         else
         {
             // The enemy is below
-            upwardTime -= Math.Abs(verticalDistance) / 10; // Adjust this value as needed
-            downwardTime += Math.Abs(verticalDistance) / 10; // Adjust this value as needed
+            upwardTime -= Math.Abs(verticalDistance) / 10;
+            downwardTime += Math.Abs(verticalDistance) / 10;
         }
 
         // Calculate the initial upward velocity needed to reach the peak in upwardTime seconds
