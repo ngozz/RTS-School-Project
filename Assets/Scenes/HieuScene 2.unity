@@ -1457,6 +1457,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 510320105324838243, guid: 459bb9ba31b525d4c8a8306511fe8008, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 510320105324838243, guid: 459bb9ba31b525d4c8a8306511fe8008, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1660001878052812822, guid: 459bb9ba31b525d4c8a8306511fe8008, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -2366,6 +2374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088897802656595107, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3202421697772441647, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.45

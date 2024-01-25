@@ -89,14 +89,18 @@ public class KnightMovement : MonoBehaviour
                     transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
                 }
             }
-            if (!isResetting)
+            else
             {
-                StartCoroutine(ResetIsManualMoveAfterDelay());
+                animator.SetBool("Attack", false);
+                if (!isResetting)
+                {
+                    StartCoroutine(ResetIsManualMoveAfterDelay());
+                }
             }
         }
     }
 
-    GameObject FindClosestEnemy()
+    public GameObject FindClosestEnemy()
     {
         GameObject[] enemies;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");

@@ -15,6 +15,7 @@ public class KnightStats : MonoBehaviour
     public float currentXP = 0f;
     public float xpToNextLevel = 100f;
     public float levelUpMultiplier = 1.5f;
+    public float xpGainEachAttack = 1f;
 
     private Animator animator;
     private bool isDead = false;
@@ -120,6 +121,15 @@ public class KnightStats : MonoBehaviour
 
     public void Attack()
     {
-        GiveXP(10);
+        GiveXP(xpGainEachAttack);
+        GameObject closestEnemy = GetComponent<KnightMovement>().FindClosestEnemy();
+        if (closestEnemy != null)
+        {
+            Health enemyStats = closestEnemy.GetComponent<Health>();
+            if (enemyStats != null)
+            {
+                enemyStats.TakeDamage((int)attackDamage);
+            }
+        }
     }
 }
