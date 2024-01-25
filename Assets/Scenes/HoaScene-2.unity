@@ -571,7 +571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 1833166142}
-  fire_price: 150
 --- !u!4 &461478749
 Transform:
   m_ObjectHideFlags: 0
@@ -2202,6 +2201,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088897802656595107, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: attackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202421697772441647, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202421697772441647, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202421697772441647, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3202421697772441647, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.45
@@ -2245,6 +2260,22 @@ PrefabInstance:
     - target: {fileID: 3423257468576329317, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
       propertyPath: m_Name
       value: Knight 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379207228856676238, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379207228856676238, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676375316380769299, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8676375316380769299, guid: 7a3c7482126c13c4c91c0239bdd48fc2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
