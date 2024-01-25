@@ -70,7 +70,7 @@ public class KnightStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthRegenDelayTimer = 0f;
@@ -79,7 +79,9 @@ public class KnightStats : MonoBehaviour
             isDead = true;
             animator.SetTrigger("Die");
             StartCoroutine(Respawn());
+            return true;
         }
+        return false;
     }
 
     public void GiveXP(float xp)

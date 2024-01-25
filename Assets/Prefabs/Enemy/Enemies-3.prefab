@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 209949992509045634}
   m_Layer: 6
   m_Name: Enemies-3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5490318807509736052}
+  attackDamage: 2
   moveSpeed: 0.5
   livesTaken: 1
+  animator: {fileID: 0}
+  attackInterval: 0
 --- !u!50 &5490318807509736052
 Rigidbody2D:
   serializedVersion: 4
