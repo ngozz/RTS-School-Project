@@ -9,9 +9,9 @@ public class Timer : MonoBehaviour
     [Header("References")]
     [SerializeField] private Image uiFillImage;
 
-    public int Duration { get; private set; }
+    public float Duration { get; private set; }
 
-    private int remainingDuration;
+    private float remainingDuration;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         Duration = remainingDuration = 0;
     }
 
-    public Timer SetDuration(int seconds)
+    public Timer SetDuration(float seconds)
     {
         Duration = remainingDuration = seconds;
         return this;
@@ -48,7 +48,7 @@ public class Timer : MonoBehaviour
         End();
     }
 
-    private void UpdateUI(int seconds)
+    private void UpdateUI(float seconds)
     {
         uiFillImage.fillAmount = Mathf.InverseLerp(0, Duration, seconds);
     }
@@ -58,8 +58,8 @@ public class Timer : MonoBehaviour
         ResetTimer();
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         StopAllCoroutines();
-    }
+    }*/
 }
