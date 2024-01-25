@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class PausedMenuManager : MonoBehaviour
 {
@@ -31,6 +31,10 @@ public class PausedMenuManager : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void OpenScene5() {
+        SceneManager.LoadScene("SelectMap");
     }
     
 }
