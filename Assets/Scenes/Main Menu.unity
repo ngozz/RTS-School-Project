@@ -1373,8 +1373,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2057533812}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ActivateSelectMap
-        m_Mode: 6
+        m_MethodName: OpenScene3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1654,7 +1654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &855256187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3179,7 +3179,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1675104001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 855256187}
+        m_TargetAssemblyTypeName: MapSelection, Assembly-CSharp
+        m_MethodName: OpenScene2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1675104001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3688,7 +3700,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1893488034}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 855256187}
+        m_TargetAssemblyTypeName: MapSelection, Assembly-CSharp
+        m_MethodName: OpenScene1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1893488034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3809,7 +3833,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1970760287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 855256187}
+        m_TargetAssemblyTypeName: MapSelection, Assembly-CSharp
+        m_MethodName: OpenScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1970760287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3894,7 +3930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1304419886}
   SettingScene: {fileID: 1883207764}
-  SelectMap: {fileID: 860608564}
 --- !u!1 &2087435170
 GameObject:
   m_ObjectHideFlags: 0

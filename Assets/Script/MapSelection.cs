@@ -10,6 +10,10 @@ public class MapSelection : MonoBehaviour
         
     }
 
+    public void OpenScene4() {
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void OpenScene() {
         SceneManager.LoadScene("DuyScene");
     }
