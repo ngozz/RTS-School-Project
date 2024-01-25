@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject SettingScene;
+    [SerializeField] private GameObject SelectMap;
 
     private void Start()
     {
@@ -20,8 +20,9 @@ public class MainMenu : MonoBehaviour
         SettingScene.SetActive(!state);
     }
 
-    public void OpenScene3() {
-        SceneManager.LoadScene("SelectMap");
+    public void ActivateSelectMap(bool state)
+    {
+        mainMenu.SetActive(state);
+        SelectMap.SetActive(!state);
     }
-
 }
