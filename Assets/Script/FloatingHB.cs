@@ -12,8 +12,4 @@ public class FloatingHB : MonoBehaviour
         slider.value = currentValue / maxValue;
 
     }
-    void Update()
-    {
-        
-    }
 }

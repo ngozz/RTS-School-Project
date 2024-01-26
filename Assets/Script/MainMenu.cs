@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,5 +18,9 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(state);
         SettingScene.SetActive(!state);
+    }
+
+    public void OpenScene3() {
+        SceneManager.LoadScene("SelectMap");
     }
 }

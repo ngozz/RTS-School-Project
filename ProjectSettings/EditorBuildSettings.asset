@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/HoaScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Main Menu.unity
+    guid: ed0de68a1a67ab547b55875caa4595cc
+  - enabled: 1
+    path: Assets/Scenes/SelectMap.unity
+    guid: cd328424b4d03624bae95f53a29d1cf9
+  - enabled: 1
+    path: Assets/Scenes/DuyScene.unity
+    guid: 727f56132829683489f62ff94123e8b8
+  - enabled: 1
+    path: Assets/Scenes/HoaScene-2.unity
+    guid: 2edaea7b3236e4b0080a6aae5ce26002
+  - enabled: 1
+    path: Assets/Scenes/HieuScene 2.unity
+    guid: 65ca5bcb17bd9a649824fa346e3384cf
   m_configObjects: {}
