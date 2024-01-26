@@ -18,6 +18,7 @@ public class Map01_EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn = 0f;
     private float WaitingTime;
     private float enemiesPerSecond;
+    private int enemiesAlive;
 
 
     [Header("Events")]
@@ -26,7 +27,7 @@ public class Map01_EnemySpawner : MonoBehaviour
     private bool SpawningSooner = false;
     private GameObject currentBtnSpawn;
     private bool isSpawning = false;
-    private bool check = false;
+    private bool isEndLastWave = false;
 
     private WaitForSeconds waitFor7Seconds = new WaitForSeconds(7f);
     private WaitForSeconds waitFor6Seconds = new WaitForSeconds(6f);
@@ -38,6 +39,16 @@ public class Map01_EnemySpawner : MonoBehaviour
     private void Start()
     {
         currentBtnSpawn = btnSpawnEnemiesSoonerFirst;
+    }
+
+    private void Awake()
+    {
+        onEnemyDestroy.AddListener(EnemyDestroyed);
+    }
+
+    private void EnemyDestroyed()
+    {
+        enemiesAlive--;
     }
 
     private void Update()
@@ -60,6 +71,11 @@ public class Map01_EnemySpawner : MonoBehaviour
 
         }
 
+        if (isEndLastWave == true && enemiesAlive == 0)
+        {
+            Debug.Log("WinGame");
+        }
+
         if (!isSpawning)
         {
             return;
@@ -80,13 +96,20 @@ public class Map01_EnemySpawner : MonoBehaviour
 
     private void EndWave()
     {
-        Debug.Log("EndWave");
-        isSpawning = false;
-        currentBtnSpawn = btnSpawnEnemiesSooner;
-        currentBtnSpawn.SetActive(true);
-        WaitingTime = 15f;
-        timerSpawnSooner.SetDuration(WaitingTime).Begin();
-        Debug.Log("Set Duration");
+        if (currentWave < 7)
+        {
+            isSpawning = false;
+            currentBtnSpawn = btnSpawnEnemiesSooner;
+            currentBtnSpawn.SetActive(true);
+            WaitingTime = 15f;
+            timerSpawnSooner.SetDuration(WaitingTime).Begin();
+        }
+        if (currentWave == 7)
+        {
+            isSpawning = false;
+            isEndLastWave = true;
+
+        }
     }
 
     public void SpawnEnemiesSooner()
@@ -272,7 +295,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.8f : 1f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 0));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 0));
         }
     }
 
@@ -281,7 +304,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.5f : 0.7f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 1));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 1));
         }
     }
 
@@ -290,7 +313,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = 0.25f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 2));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 2));
         }
     }
 
@@ -298,5 +321,6 @@ public class Map01_EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
+        enemiesAlive++;
     }
 }
