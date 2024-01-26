@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Map01_EnemySpawner : MonoBehaviour
+public class Map02_EnemySpawner : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
@@ -104,6 +104,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         yield return StartCoroutine(SpawnWave5());
         yield return StartCoroutine(SpawnWave6());
         yield return StartCoroutine(SpawnWave7());
+        yield return StartCoroutine(SpawnWave8());
 
         // All waves have been spawned
         Debug.Log("All waves completed!");
@@ -155,7 +156,7 @@ public class Map01_EnemySpawner : MonoBehaviour
             currentWave = 3;
             SpawnOrcs(2);
             timeSinceLastSpawn = 0f;
-            yield return waitFor5Seconds;
+            yield return null;
 
             SpawnGoblins(8);
             timeSinceLastSpawn = 0f;
@@ -267,12 +268,25 @@ public class Map01_EnemySpawner : MonoBehaviour
         }
     }
 
+    private IEnumerator SpawnWave8()
+    {
+        if (isSpawning)
+        {
+            currentWave = 8;
+            EndWave();
+        }
+        else
+        {
+            yield return new WaitUntil(() => isSpawning);
+        }
+    }
+
     private void SpawnGoblins(int count)
     {
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.8f : 1f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 0));
+            StartCoroutine(WaitFor(1f / enemiesPerSecond, 0));
         }
     }
 
@@ -281,7 +295,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.5f : 0.7f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 1));
+            StartCoroutine(WaitFor(1f / enemiesPerSecond, 1));
         }
     }
 
@@ -290,13 +304,19 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = 0.25f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 2));
+            StartCoroutine(WaitFor(1f / enemiesPerSecond, 2));
         }
+    }
+
+    private void SpawnBoss()
+    {
+        StartCoroutine(WaitFor(10, 3));
     }
 
     private IEnumerator WaitFor(float time, int type)
     {
         yield return new WaitForSeconds(time);
-        Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
+        Instantiate(enemyPrefabs[0], LevelManager.main.startPoint.position, Quaternion.identity);
     }
 }
+
