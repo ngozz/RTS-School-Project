@@ -272,7 +272,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.8f : 1f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 0));
+            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 0));
         }
     }
 
@@ -281,7 +281,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.5f : 0.7f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 1));
+            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 1));
         }
     }
 
@@ -290,7 +290,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = 0.25f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 2));
+            StartCoroutine(WaitFor(i*(1f / enemiesPerSecond), 2));
         }
     }
 

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5763187718995550315}
   m_Layer: 6
   m_Name: Enemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -883363424313368132}
+  attackDamage: 2
   moveSpeed: 0.5
   livesTaken: 1
+  animator: {fileID: 0}
+  attackInterval: 0
 --- !u!50 &-883363424313368132
 Rigidbody2D:
   serializedVersion: 4
@@ -179,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1d5a9913d6d479bb6857fadb935680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 10
+  health: 5
+  maxHealth: 5
   currencyWorth: 50
   healthBar: {fileID: 0}
 --- !u!95 &-5763187718995550315
