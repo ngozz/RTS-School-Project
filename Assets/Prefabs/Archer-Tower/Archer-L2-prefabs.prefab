@@ -198,10 +198,10 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 1756839985557775963}
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   bulletPrefab: {fileID: 6760143967550101966, guid: 83491a0e2e696ca4691c4cd36618afa2, type: 3}
   firingPoint: {fileID: 781196519034775642}
-  towerSelectionPrefab: {fileID: 0}
+  towerSelectionPrefab: {fileID: 3405297282154475714, guid: 6a25a8a5121d6d249ad5e583c1e19d91, type: 3}
   targetingRange: 5
   rotationSpeed: 1000
   bps: 3
