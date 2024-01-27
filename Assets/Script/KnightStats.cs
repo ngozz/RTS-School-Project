@@ -135,4 +135,24 @@ public class KnightStats : MonoBehaviour
             }
         }
     }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public float GetCurrentXP()
+    {
+        return currentXP;
+    }
+
+    public float GetXPToNextLevel()
+    {
+        return xpToNextLevel;
+    }
 }

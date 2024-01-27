@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
-  - Knight
-<<<<<<< HEAD
-=======
-  - Tower
->>>>>>> fd0880c7c2759effd7c9f2a8f465c156423852a7
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -17,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemy
-  - Bullet
+  - 
+  - 
   - 
   - 
   - 
@@ -46,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 498432423
     locked: 0
