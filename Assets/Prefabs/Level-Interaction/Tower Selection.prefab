@@ -355,16 +355,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 6921577851608962035}
     m_Modifications:
     - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 176504557570840901, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: towerPrefab
       value: 
-      objectReference: {fileID: 4042340675452562249, guid: c49f2490e15647e46a2c6c090ed7ca78, type: 3}
+      objectReference: {fileID: 2885606962859499129, guid: 44b633c91f8880047a6d3ba881cd4b33, type: 3}
     - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.77
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1413505852689139339, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.8
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 3483427840743229434, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,7 +413,7 @@ PrefabInstance:
     - target: {fileID: 3702093283757894151, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0e519c78d7cdf45c7a67057c1c2fc5c8, type: 3}
+      objectReference: {fileID: 21300000, guid: e5307ed710e844ece827ccad543d87d7, type: 3}
     - target: {fileID: 5815681340994520436, guid: edf70e25ff199254d948e10e8c4854d8, type: 3}
       propertyPath: m_Name
       value: Tower Option 3
