@@ -107,7 +107,7 @@ public class Map01_EnemySpawner : MonoBehaviour
     {
         gameCompleteUI.SetActive(true);
 
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
     }
 
     public void SpawnEnemiesSooner()

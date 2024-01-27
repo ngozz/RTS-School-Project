@@ -800,7 +800,7 @@ MonoBehaviour:
   turretRotationPoint: {fileID: 5536970707143746730}
   enemyMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   bulletPrefab: {fileID: 6760143967550101966, guid: 83491a0e2e696ca4691c4cd36618afa2, type: 3}
   firingPoint: {fileID: 8911882982578254752}
   towerSelectionPrefab: {fileID: 3405297282154475714, guid: ba87658ff82c12e4a82ebf3b08440592, type: 3}
