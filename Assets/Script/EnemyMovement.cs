@@ -13,13 +13,15 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int attackDamage = 2;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int livesTaken;
+    
+    public KnightStats ks;
     private Transform target;
     private int pathIndex = 0;
 
     public Animator animator;
     public float attackInterval;
     Coroutine attackOrder;
-    KnightStats detectedKnight;
+    KnightStats detectedKnight ;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +32,16 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!detectedKnight)
-        {
-            Move();
-        }
+        //if (detectedKnight /* enemy do not attack knight */) 
+        //{
+        //    Move();
+        //}
+        Move();
     }
 
     IEnumerator Attack()
     {
-        animator.Play("Attack");
+        animator.Play("Attack",0,0);
         //Wait interval
         yield return new WaitForSeconds(attackInterval);
         //Attack again
@@ -47,6 +50,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Move()
     {
+        //animator.Play("New Animation");
         if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
             pathIndex++;
@@ -67,12 +71,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void InflictDamage()
     {
-        bool knightDied = detectedKnight.TakeDamage(attackDamage);
+        detectedKnight.TakeDamage(attackDamage);
 
-        if (knightDied) 
+        if (ks.currentHealth < 0) 
         {
-            detectedKnight = null;
+            //detectedKnight = null;
             StopCoroutine(attackOrder);
+            animator.Play("New Animation");
         }
     }
 
@@ -85,8 +90,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (detectedKnight)
-            return;
+        //if (detectedKnight)
+        //return;
 
         if(collision.tag == "Knight")
         {

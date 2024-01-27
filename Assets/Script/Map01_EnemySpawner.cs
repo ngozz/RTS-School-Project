@@ -12,6 +12,7 @@ public class Map01_EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject btnSpawnEnemiesSooner;
     [SerializeField] Timer timerSpawnSooner;
     [SerializeField] private TextMeshProUGUI Wave;
+    [SerializeField] public GameObject gameCompleteUI;
 
     [Header("Attributes")]
     private int currentWave = 0;
@@ -63,6 +64,7 @@ public class Map01_EnemySpawner : MonoBehaviour
         if (isEndLastWave == true && enemiesAlive == 0)
         {
             Debug.Log("WinGame");
+            EndGame();
         }
 
         if (!isSpawning)
@@ -99,6 +101,13 @@ public class Map01_EnemySpawner : MonoBehaviour
             isEndLastWave = true;
 
         }
+    }
+
+    void EndGame()
+    {
+        gameCompleteUI.SetActive(true);
+
+        Time.timeScale = 0f;
     }
 
     public void SpawnEnemiesSooner()

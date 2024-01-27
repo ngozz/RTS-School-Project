@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -883363424313368132}
   - component: {fileID: 7844974962685229978}
   - component: {fileID: -5763187718995550315}
+  - component: {fileID: 6435902582885994807}
   m_Layer: 6
   m_Name: Enemies
   m_TagString: Enemy
@@ -141,8 +142,8 @@ MonoBehaviour:
   attackDamage: 2
   moveSpeed: 0.5
   livesTaken: 1
-  animator: {fileID: 0}
-  attackInterval: 0
+  animator: {fileID: -5763187718995550315}
+  attackInterval: 1.92
 --- !u!50 &-883363424313368132
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +208,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &6435902582885994807
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922535264010646555}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.31, y: 2.99}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.31, y: 2.99}
+  m_EdgeRadius: 0
 --- !u!1 &5261406278240155698
 GameObject:
   m_ObjectHideFlags: 0
