@@ -38,7 +38,6 @@ public class Turret : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
         if (isClicked)
         {
             StartCoroutine(CheckForClicksOutside());

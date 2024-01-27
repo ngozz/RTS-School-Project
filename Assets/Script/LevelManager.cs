@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Scripting;
 using TMPro;
+using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
@@ -16,15 +17,43 @@ public class LevelManager : MonoBehaviour
     public int LifeLeft = 20;
     public TextMeshProUGUI Life;
     public TextMeshProUGUI Gold;
+    public int enemiesAlive = 0;
+
+    [Header("Events")]
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
+    public static UnityEvent onEnemySpawn = new UnityEvent();
+    public static UnityEvent onEnemyAlive = new UnityEvent();
+    
+    
 
     private void Awake()
     {
         main = this;
+        onEnemyDestroy.AddListener(EnemyDestroyed);
+        onEnemySpawn.AddListener(EnemySpawn);
+        //onEnemyAlive.AddListener(GetEnemyAlive);
     }
 
     private void Start() 
     {
         currency = 300;
+    }
+
+    private void EnemyDestroyed()
+    {
+        Debug.Log("Kill enemy");
+        enemiesAlive--;
+    }
+
+    private void EnemySpawn()
+    {
+        Debug.Log("Spawn Enemy");
+        enemiesAlive++;
+    }
+
+    public int GetEnemyAlive()
+    {
+        return enemiesAlive;
     }
 
     public void IncreaseCurrency(int amount) {
