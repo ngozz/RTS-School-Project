@@ -142,7 +142,7 @@ public class KnightStats : MonoBehaviour
     {
         return maxHealth;
     }
-
+    
     public float GetCurrentXP()
     {
         return currentXP;
