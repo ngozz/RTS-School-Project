@@ -12,7 +12,7 @@ public class StoneTower : MonoBehaviour
     [SerializeField]
     private GameObject stoneSpawnPoint;
     [SerializeField]
-    private float stoneHangTime = 3f;
+    private float stoneHangTime = 1f;
     [SerializeField]
     private float cooldown = 3f;
     private float timer = 0f;
