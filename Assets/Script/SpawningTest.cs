@@ -1,10 +1,10 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Map01_EnemySpawner : MonoBehaviour
+public class SpawningTest : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] enemyPrefabs;
@@ -18,13 +18,15 @@ public class Map01_EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn = 0f;
     private float WaitingTime;
     private float enemiesPerSecond;
-    private int enemiesAlive;
+
+
+    [Header("Events")]
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
 
     private bool SpawningSooner = false;
     private GameObject currentBtnSpawn;
     private bool isSpawning = false;
-    private bool isEndLastWave = false;
-    private LevelManager levelManager;
+    private bool check = false;
 
     private WaitForSeconds waitFor7Seconds = new WaitForSeconds(7f);
     private WaitForSeconds waitFor6Seconds = new WaitForSeconds(6f);
@@ -36,18 +38,16 @@ public class Map01_EnemySpawner : MonoBehaviour
     private void Start()
     {
         currentBtnSpawn = btnSpawnEnemiesSoonerFirst;
-        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void Update()
     {
         Wave.text = "Wave" + " " + currentWave.ToString() + " / 7";
         WaitingTime -= Time.deltaTime;
-        enemiesAlive = levelManager.GetEnemyAlive();
         if (SpawningSooner)
         {
             StartWave();
-            if (currentWave == 0)
+            if(currentWave == 0)
             {
                 StartGame();
             }
@@ -58,11 +58,6 @@ public class Map01_EnemySpawner : MonoBehaviour
             StartWave();
             currentBtnSpawn.SetActive(false);
 
-        }
-
-        if (isEndLastWave == true && enemiesAlive == 0)
-        {
-            Debug.Log("WinGame");
         }
 
         if (!isSpawning)
@@ -85,20 +80,13 @@ public class Map01_EnemySpawner : MonoBehaviour
 
     private void EndWave()
     {
-        if (currentWave < 7)
-        {
-            isSpawning = false;
-            currentBtnSpawn = btnSpawnEnemiesSooner;
-            currentBtnSpawn.SetActive(true);
-            WaitingTime = 15f;
-            timerSpawnSooner.SetDuration(WaitingTime).Begin();
-        }
-        if (currentWave == 7)
-        {
-            isSpawning = false;
-            isEndLastWave = true;
-
-        }
+        Debug.Log("EndWave");
+        isSpawning = false;
+        currentBtnSpawn = btnSpawnEnemiesSooner;
+        currentBtnSpawn.SetActive(true);
+        WaitingTime = 15f;
+        timerSpawnSooner.SetDuration(WaitingTime).Begin();
+        Debug.Log("Set Duration");
     }
 
     public void SpawnEnemiesSooner()
@@ -123,16 +111,16 @@ public class Map01_EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnWave1()
     {
-        currentWave = 1;
-        SpawnGoblins(3);
+        currentWave = 1; 
+        SpawnGoblins(5);
         timeSinceLastSpawn = 0f;
         yield return waitFor7Seconds;
 
-        SpawnGoblins(3);
+        SpawnGoblins(5);
         timeSinceLastSpawn = 0f;
         yield return waitFor10Seconds;
 
-        SpawnGoblins(5);
+        SpawnGoblins(10);
         timeSinceLastSpawn = 0f;
         EndWave();
     }
@@ -142,15 +130,15 @@ public class Map01_EnemySpawner : MonoBehaviour
         if (isSpawning)
         {
             currentWave = 2;
-            SpawnGoblins(5);
+            SpawnGoblins(8);
             timeSinceLastSpawn = 0f;
             yield return waitFor6Seconds;
 
-            SpawnGoblins(5);
+            SpawnGoblins(8);
             timeSinceLastSpawn = 0f;
             yield return waitFor6Seconds;
 
-            SpawnGoblins(5);
+            SpawnGoblins(8);
             timeSinceLastSpawn = 0f;
             EndWave();
         }
@@ -167,9 +155,9 @@ public class Map01_EnemySpawner : MonoBehaviour
             currentWave = 3;
             SpawnOrcs(2);
             timeSinceLastSpawn = 0f;
-            yield return waitFor5Seconds;
+            yield return null;
 
-            SpawnGoblins(8);
+            SpawnGoblins(12);
             timeSinceLastSpawn = 0f;
             yield return waitFor5Seconds;
 
@@ -211,11 +199,11 @@ public class Map01_EnemySpawner : MonoBehaviour
             timeSinceLastSpawn = 0f;
             yield return waitFor6Seconds;
 
-            SpawnGoblins(8);
+            SpawnGoblins(10);
             timeSinceLastSpawn = 0f;
             yield return waitFor6Seconds;
 
-            SpawnGoblins(8);
+            SpawnGoblins(10);
             timeSinceLastSpawn = 0f;
             EndWave();
         }
@@ -269,7 +257,7 @@ public class Map01_EnemySpawner : MonoBehaviour
             timeSinceLastSpawn = 0f;
             yield return null;
 
-            SpawnGoblins(12);
+            SpawnGoblins(20);
             timeSinceLastSpawn = 0f;
             EndWave();
         }
@@ -281,19 +269,19 @@ public class Map01_EnemySpawner : MonoBehaviour
 
     private void SpawnGoblins(int count)
     {
-        enemiesPerSecond = (count >= 20 || count < 10) ? 0.8f : 1f;
+        enemiesPerSecond = (count >= 20 || count < 10) ? 1.2f : 1.5f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 0));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond)));
         }
     }
 
     private void SpawnOrcs(int count)
     {
-        enemiesPerSecond = (count >= 20 || count < 10) ? 0.5f : 0.7f;
+        enemiesPerSecond = 0.5f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 1));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond)));
         }
     }
 
@@ -302,14 +290,14 @@ public class Map01_EnemySpawner : MonoBehaviour
         enemiesPerSecond = 0.25f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 2));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond)));
         }
     }
 
-    private IEnumerator WaitFor(float time, int type)
+    private IEnumerator WaitFor(float time)
     {
         yield return new WaitForSeconds(time);
-        Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
-        LevelManager.onEnemySpawn.Invoke();
+        Instantiate(enemyPrefabs[0], LevelManager.main.startPoint.position, Quaternion.identity);
     }
 }
+*/
