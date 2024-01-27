@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2882066518646553763}
   - component: {fileID: 3635456203880758345}
   - component: {fileID: 3651617833007995264}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 2069241245516566972}
   - component: {fileID: 6563828110665355441}
   - component: {fileID: 8187985493539387669}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 732175826958514109}
   - component: {fileID: 2700905457572824959}
   - component: {fileID: 9216095648900247859}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Enemy-fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,8 +343,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 732175826958514109}
+  attackDamage: 2
   moveSpeed: 0.6
   livesTaken: 1
+  ks: {fileID: 0}
+  animator: {fileID: 0}
+  attackInterval: 0
 --- !u!50 &732175826958514109
 Rigidbody2D:
   serializedVersion: 4
@@ -420,7 +424,7 @@ GameObject:
   - component: {fileID: 1092560427295830730}
   - component: {fileID: 7876752723124710094}
   - component: {fileID: 3383879382917794024}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4148241847290715689}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,7 +535,7 @@ GameObject:
   - component: {fileID: 5494663229867636143}
   - component: {fileID: 4419663616729598236}
   - component: {fileID: 6219776268181980839}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
