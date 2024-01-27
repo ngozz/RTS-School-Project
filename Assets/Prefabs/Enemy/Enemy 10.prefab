@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3736040728073658027}
   - component: {fileID: -7119360897873189396}
   - component: {fileID: 7077164407769271587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy 10
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -249,19 +249,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1546378688786516645, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3411464132824409806, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4579383870932136584, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5351028815793840005, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5803115529014415217, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Pivot.x
@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6913418131429329392, guid: 39689b9f8d7eb654eac4a0c641d59a33, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
