@@ -20,14 +20,11 @@ public class Map01_EnemySpawner : MonoBehaviour
     private float enemiesPerSecond;
     private int enemiesAlive;
 
-
-    [Header("Events")]
-    public static UnityEvent onEnemyDestroy = new UnityEvent();
-
     private bool SpawningSooner = false;
     private GameObject currentBtnSpawn;
     private bool isSpawning = false;
     private bool isEndLastWave = false;
+    private LevelManager levelManager;
 
     private WaitForSeconds waitFor7Seconds = new WaitForSeconds(7f);
     private WaitForSeconds waitFor6Seconds = new WaitForSeconds(6f);
@@ -39,22 +36,14 @@ public class Map01_EnemySpawner : MonoBehaviour
     private void Start()
     {
         currentBtnSpawn = btnSpawnEnemiesSoonerFirst;
-    }
-
-    private void Awake()
-    {
-        onEnemyDestroy.AddListener(EnemyDestroyed);
-    }
-
-    private void EnemyDestroyed()
-    {
-        enemiesAlive--;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void Update()
     {
         Wave.text = "Wave" + " " + currentWave.ToString() + " / 7";
         WaitingTime -= Time.deltaTime;
+        enemiesAlive = levelManager.GetEnemyAlive();
         if (SpawningSooner)
         {
             StartWave();
@@ -321,6 +310,6 @@ public class Map01_EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
-        enemiesAlive++;
+        LevelManager.onEnemySpawn.Invoke();
     }
 }
