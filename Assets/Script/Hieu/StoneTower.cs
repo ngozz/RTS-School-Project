@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class StoneTower : MonoBehaviour
 {
+    [SerializeField] private int attackDamage = 3;
     [SerializeField]
     private float range = 10f;
     [SerializeField]
@@ -12,15 +14,32 @@ public class StoneTower : MonoBehaviour
     [SerializeField]
     private GameObject stoneSpawnPoint;
     [SerializeField]
-    private float stoneHangTime = 3f;
+    private float stoneHangTime = 1f;
     [SerializeField]
     private float cooldown = 3f;
     private float timer = 0f;
     private bool canShoot = true;
     private GameObject closestEnemy = null;
+    [SerializeField] private GameObject towerSelectionPrefab;
+    private GameObject towerSelectionInstance;
+    private bool isClicked = false;
 
+    void OnMouseDown()
+    {
+        if (!isClicked)
+        {
+            isClicked = true;
+            towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+        }
+    }
     private void Update()
     {
+        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
+        }
+
         // Increment the timer
         timer += Time.deltaTime;
 
@@ -95,7 +114,7 @@ public class StoneTower : MonoBehaviour
         // Calculate a point ahead of the enemy in the direction of their movement
         // The distance ahead is proportional to the fireRate, plus an additional offset
         // Adjust these values as needed
-        float offset = 0.5f; // This is the additional offset
+        float offset = 0f; // This is the additional offset
         Vector3 futureEnemyPosition = enemyPosition + enemyDirection * (stoneHangTime + offset);
 
         // Get the direction of the future enemy position
@@ -143,7 +162,47 @@ public class StoneTower : MonoBehaviour
     private IEnumerator DestroyStoneAfterSeconds(GameObject stone, float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        //get all enemies (gameobject with tag enemy) in a radius of 1
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(stone.transform.position, 0.5f);
+        //loop through all enemies
+        foreach (Collider2D enemy in enemies)
+        {
+            //if the enemy is an enemy
+            if (enemy.gameObject.CompareTag("Enemy"))
+            {
+                //take damage
+                enemy.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
+            }
+        }
+
         Animator stoneAnimator = stone.GetComponent<Animator>();
         stoneAnimator.SetTrigger("Break");
     }
+
+    IEnumerator CheckForClicksOutside()
+    {
+        // Wait for a short moment before checking for the click
+        yield return new WaitForSeconds(0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bool isClickedOnOption = false;
+            foreach (Transform option in towerSelectionInstance.transform)
+            {
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                {
+                    isClickedOnOption = true;
+                    break;
+                }
+            }
+            if (!isClickedOnOption)
+            {
+                Destroy(towerSelectionInstance);
+                isClicked = false;
+                Debug.Log("Destroy");
+            }
+        }
+    }
+
 }

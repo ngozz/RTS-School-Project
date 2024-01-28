@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 5490318807509736052}
   - component: {fileID: 9063476932918487128}
   - component: {fileID: 209949992509045634}
-  m_Layer: 6
+  - component: {fileID: 8231101865388445780}
+  m_Layer: 3
   m_Name: Enemies-3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -141,8 +142,9 @@ MonoBehaviour:
   attackDamage: 2
   moveSpeed: 0.5
   livesTaken: 1
+  ks: {fileID: 0}
   animator: {fileID: 0}
-  attackInterval: 0
+  attackInterval: 2
 --- !u!50 &5490318807509736052
 Rigidbody2D:
   serializedVersion: 4
@@ -207,6 +209,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &8231101865388445780
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353429249381020825}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.37, y: 2.94}
+    newSize: {x: 3.37, y: 2.94}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.37, y: 2.94}
+  m_EdgeRadius: 0
 --- !u!1 &1425311823619338668
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +265,7 @@ GameObject:
   - component: {fileID: 4219013055006437941}
   - component: {fileID: 54374858155073472}
   - component: {fileID: 7262720973449129416}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +340,7 @@ GameObject:
   - component: {fileID: 3193929956682325977}
   - component: {fileID: 3254049001764801517}
   - component: {fileID: 4319688340034581656}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +415,7 @@ GameObject:
   - component: {fileID: 5347077651808705302}
   - component: {fileID: 6547103091924692265}
   - component: {fileID: 3655445054695203645}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +519,7 @@ GameObject:
   - component: {fileID: 1659451744248244833}
   - component: {fileID: 6340218456161361040}
   - component: {fileID: 2740414794890861759}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +618,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7994750224874879754}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
