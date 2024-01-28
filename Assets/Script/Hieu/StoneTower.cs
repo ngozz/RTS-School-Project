@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class StoneTower : MonoBehaviour
 {
@@ -19,9 +20,25 @@ public class StoneTower : MonoBehaviour
     private float timer = 0f;
     private bool canShoot = true;
     private GameObject closestEnemy = null;
+    [SerializeField] private GameObject towerSelectionPrefab;
+    private GameObject towerSelectionInstance;
+    private bool isClicked = false;
 
+    void OnMouseDown()
+    {
+        if (!isClicked)
+        {
+            isClicked = true;
+            towerSelectionInstance = Instantiate(towerSelectionPrefab, transform.position, Quaternion.identity, transform);
+        }
+    }
     private void Update()
     {
+        Debug.Log("isClicked: " + isClicked + " towerSelectionInstance: " + towerSelectionInstance);
+        if (isClicked)
+        {
+            StartCoroutine(CheckForClicksOutside());
+        }
         // Increment the timer
         timer += Time.deltaTime;
 
@@ -160,4 +177,31 @@ public class StoneTower : MonoBehaviour
         Animator stoneAnimator = stone.GetComponent<Animator>();
         stoneAnimator.SetTrigger("Break");
     }
+
+    IEnumerator CheckForClicksOutside()
+    {
+        // Wait for a short moment before checking for the click
+        yield return new WaitForSeconds(0.1f);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            bool isClickedOnOption = false;
+            foreach (Transform option in towerSelectionInstance.transform)
+            {
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                {
+                    isClickedOnOption = true;
+                    break;
+                }
+            }
+            if (!isClickedOnOption)
+            {
+                Destroy(towerSelectionInstance);
+                isClicked = false;
+                Debug.Log("Destroy");
+            }
+        }
+    }
+
 }

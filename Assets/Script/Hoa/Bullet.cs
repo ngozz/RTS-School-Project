@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
         // Calculate the angle towards the target
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f - 45f;
-        Debug.Log("Angle: " + angle);
+        //Debug.Log("Angle: " + angle);
 
         // Create a quaternion (rotation) based on this angle
         Quaternion bulletRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8042677329048286033}
   - component: {fileID: 5520588522867711103}
   - component: {fileID: 2710016938208087509}
+  - component: {fileID: 2269870698773942382}
   m_Layer: 0
   m_Name: Stone Tower 1
   m_TagString: Untagged
@@ -108,6 +109,42 @@ MonoBehaviour:
   stoneSpawnPoint: {fileID: 2103038708959545374}
   stoneHangTime: 1
   cooldown: 2
+  towerSelectionPrefab: {fileID: 3405297282154475714, guid: 58ff7d34a3b3ab74680b36587359239c, type: 3}
+--- !u!58 &2269870698773942382
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2885606962859499129}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.023320436, y: 0.1647012}
+  serializedVersion: 2
+  m_Radius: 1.0203393
 --- !u!1 &3280392913751849234
 GameObject:
   m_ObjectHideFlags: 0
