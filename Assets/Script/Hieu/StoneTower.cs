@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StoneTower : MonoBehaviour
 {
+    [SerializeField] private int attackDamage = 5;
     [SerializeField]
     private float range = 10f;
     [SerializeField]
@@ -143,6 +144,19 @@ public class StoneTower : MonoBehaviour
     private IEnumerator DestroyStoneAfterSeconds(GameObject stone, float seconds)
     {
         yield return new WaitForSeconds(seconds);
+        //get all enemies (gameobject with tag enemy) in a radius of 1
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(stone.transform.position, 0.5f);
+        //loop through all enemies
+        foreach (Collider2D enemy in enemies)
+        {
+            //if the enemy is an enemy
+            if (enemy.gameObject.CompareTag("Enemy"))
+            {
+                //take damage
+                enemy.gameObject.GetComponent<Health>().TakeDamage(attackDamage);
+            }
+        }
+
         Animator stoneAnimator = stone.GetComponent<Animator>();
         stoneAnimator.SetTrigger("Break");
     }
