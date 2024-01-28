@@ -39,6 +39,7 @@ public class StoneTower : MonoBehaviour
         {
             StartCoroutine(CheckForClicksOutside());
         }
+
         // Increment the timer
         timer += Time.deltaTime;
 
