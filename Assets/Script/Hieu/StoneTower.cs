@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StoneTower : MonoBehaviour
 {
-    [SerializeField] private int attackDamage = 5;
+    [SerializeField] private int attackDamage = 3;
     [SerializeField]
     private float range = 10f;
     [SerializeField]
@@ -96,7 +96,7 @@ public class StoneTower : MonoBehaviour
         // Calculate a point ahead of the enemy in the direction of their movement
         // The distance ahead is proportional to the fireRate, plus an additional offset
         // Adjust these values as needed
-        float offset = 0.5f; // This is the additional offset
+        float offset = 0f; // This is the additional offset
         Vector3 futureEnemyPosition = enemyPosition + enemyDirection * (stoneHangTime + offset);
 
         // Get the direction of the future enemy position

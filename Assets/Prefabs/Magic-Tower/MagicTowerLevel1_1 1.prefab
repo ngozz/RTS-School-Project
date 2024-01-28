@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   bulletPrefab: {fileID: 1133118428047074424, guid: 41167c61730ddf146acbf402cae14f92, type: 3}
   firingPoint: {fileID: 7974953294324077599}
   TowerBase: {fileID: 6505228076168824153}
