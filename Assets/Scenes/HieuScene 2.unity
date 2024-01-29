@@ -944,7 +944,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 191017056}
         m_TargetAssemblyTypeName: PausedMenuManager, Assembly-CSharp
         m_MethodName: OpenScene5
         m_Mode: 1
@@ -1033,11 +1033,11 @@ Transform:
   m_GameObject: {fileID: 191017055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.116943136, y: -0.066292554, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 351687270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202986404
 GameObject:
@@ -1432,6 +1432,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300327004}
   m_CullTransparentMesh: 1
+--- !u!1 &351687269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351687270}
+  m_Layer: 0
+  m_Name: Pause
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &351687270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351687269}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.116943136, y: 0.066292554, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 191017057}
+  - {fileID: 1791402451}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &390357722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908693522267923658, guid: 691e17a73fc398540b8f1acc8d6c99ea, type: 3}
@@ -3952,9 +3985,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8956226590237371776, guid: d807cda3dccf76640bbcb3c7b2e1b0ba, type: 3}
-        m_TargetAssemblyTypeName: MapSelection, Assembly-CSharp
-        m_MethodName: OpenScene2
+      - m_Target: {fileID: 6596307323480235047, guid: f9874060a383a914eb660313c65c3a16, type: 3}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+        m_MethodName: OpenScene6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4206,7 +4239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 191017056}
         m_TargetAssemblyTypeName: PausedMenuManager, Assembly-CSharp
         m_MethodName: OpenScene5
         m_Mode: 1
@@ -5099,18 +5132,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791402447}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1273954081}
   - {fileID: 497576636}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 351687270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.116943136, y: -0.066292554}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1853323820
@@ -7177,6 +7210,5 @@ SceneRoots:
   - {fileID: 1518579239}
   - {fileID: 2206754804053325823}
   - {fileID: 5169366203212430773}
-  - {fileID: 191017057}
-  - {fileID: 1791402451}
   - {fileID: 3517860182056712510}
+  - {fileID: 351687270}

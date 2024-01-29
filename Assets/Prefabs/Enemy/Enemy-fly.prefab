@@ -347,7 +347,7 @@ MonoBehaviour:
   moveSpeed: 0.6
   livesTaken: 1
   ks: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 2700905457572824959}
   attackInterval: 0
 --- !u!50 &732175826958514109
 Rigidbody2D:
@@ -409,8 +409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1d5a9913d6d479bb6857fadb935680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
-  maxHealth: 2
+  health: 40
+  maxHealth: 40
   currencyWorth: 50
   healthBar: {fileID: 8187985493539387669}
 --- !u!1 &5816171899436025913

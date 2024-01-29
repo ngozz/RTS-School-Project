@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     public Animator animator;
     public float attackInterval;
     Coroutine attackOrder;
-    KnightStats detectedKnight ;
+    KnightStats Knight ;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Attack()
     {
-        animator.Play("Attack",0,0);
+        animator.Play("Attack");
         //Wait interval
         yield return new WaitForSeconds(attackInterval);
         //Attack again
@@ -71,13 +71,13 @@ public class EnemyMovement : MonoBehaviour
 
     public void InflictDamage()
     {
-        detectedKnight.TakeDamage(attackDamage);
+        Knight.TakeDamage(attackDamage);
 
         if (ks.currentHealth < 0) 
         {
             //detectedKnight = null;
             StopCoroutine(attackOrder);
-            animator.Play("New Animation");
+            //animator.Play("New Animation");
         }
     }
 
@@ -95,7 +95,7 @@ public class EnemyMovement : MonoBehaviour
 
         if(collision.tag == "Knight")
         {
-            detectedKnight = collision.GetComponent<KnightStats>();
+            Knight = collision.GetComponent<KnightStats>();
             attackOrder =  StartCoroutine(Attack());
         }
     }
