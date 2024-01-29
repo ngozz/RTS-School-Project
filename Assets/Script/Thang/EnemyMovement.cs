@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     public Animator animator;
     public float attackInterval;
     Coroutine attackOrder;
-    KnightStats detectedKnight ;
+    KnightStats Knight ;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +71,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void InflictDamage()
     {
-        detectedKnight.TakeDamage(attackDamage);
+        Knight.TakeDamage(attackDamage);
 
         if (ks.currentHealth < 0) 
         {
@@ -95,7 +95,7 @@ public class EnemyMovement : MonoBehaviour
 
         if(collision.tag == "Knight")
         {
-            detectedKnight = collision.GetComponent<KnightStats>();
+            Knight = collision.GetComponent<KnightStats>();
             attackOrder =  StartCoroutine(Attack());
         }
     }
