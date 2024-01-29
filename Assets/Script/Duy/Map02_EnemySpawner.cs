@@ -12,21 +12,22 @@ public class Map02_EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject btnSpawnEnemiesSooner;
     [SerializeField] Timer timerSpawnSooner;
     [SerializeField] private TextMeshProUGUI Wave;
+    [SerializeField] public GameObject gameCompleteUI;
 
     [Header("Attributes")]
     private int currentWave = 0;
-    private float timeSinceLastSpawn = 0f;
     private float WaitingTime;
     private float enemiesPerSecond;
-
-
-    [Header("Events")]
-    public static UnityEvent onEnemyDestroy = new UnityEvent();
+    private int enemiesAlive;
 
     private bool SpawningSooner = false;
     private GameObject currentBtnSpawn;
     private bool isSpawning = false;
-    private bool check = false;
+    private bool isEndWave = false;
+    private bool isStartWave = false;
+    private bool isEndLastWave = false;
+    private LevelManager levelManager;
+    private int enemiesLeftToSpawn;
 
     private WaitForSeconds waitFor7Seconds = new WaitForSeconds(7f);
     private WaitForSeconds waitFor6Seconds = new WaitForSeconds(6f);
@@ -38,33 +39,49 @@ public class Map02_EnemySpawner : MonoBehaviour
     private void Start()
     {
         currentBtnSpawn = btnSpawnEnemiesSoonerFirst;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     private void Update()
     {
         Wave.text = "Wave" + " " + currentWave.ToString() + " / 7";
         WaitingTime -= Time.deltaTime;
+        enemiesAlive = levelManager.GetEnemyAlive();
         if (SpawningSooner)
         {
+            isEndWave = false;
             StartWave();
             if (currentWave == 0)
             {
                 StartGame();
             }
+            if (isStartWave)
+            {
+                isStartWave = false;
+            }
         }
 
-        if (WaitingTime <= 0 && currentWave > 0)
+        if (WaitingTime <= 0 && currentWave > 0 && isEndWave)
         {
+            isEndWave = false;
             StartWave();
             currentBtnSpawn.SetActive(false);
+            if (isStartWave)
+            {
+                isStartWave = false;
+            }
+        }
 
+        if (isEndLastWave == true && enemiesAlive == 0)
+        {
+            //Debug.Log("WinGame");
+            EndGame();
         }
 
         if (!isSpawning)
         {
             return;
         }
-        timeSinceLastSpawn += Time.deltaTime;
     }
 
     private void StartGame()
@@ -80,13 +97,25 @@ public class Map02_EnemySpawner : MonoBehaviour
 
     private void EndWave()
     {
-        Debug.Log("EndWave");
         isSpawning = false;
-        currentBtnSpawn = btnSpawnEnemiesSooner;
-        currentBtnSpawn.SetActive(true);
-        WaitingTime = 15f;
-        timerSpawnSooner.SetDuration(WaitingTime).Begin();
-        Debug.Log("Set Duration");
+        isEndWave = true;
+        if (currentWave < 7)
+        {
+            currentBtnSpawn = btnSpawnEnemiesSooner;
+            currentBtnSpawn.SetActive(true);
+            WaitingTime = 15f;
+            timerSpawnSooner.SetDuration(WaitingTime).Begin();
+        }
+        if (currentWave == 7)
+        {
+            isEndLastWave = true;
+        }
+    }
+
+    void EndGame()
+    {
+        gameCompleteUI.SetActive(true);
+
     }
 
     public void SpawnEnemiesSooner()
@@ -97,14 +126,20 @@ public class Map02_EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnWaves()
     {
+        Debug.Log("Start Wave1");
         yield return StartCoroutine(SpawnWave1());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave2());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave3());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave4());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave5());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave6());
+        yield return new WaitUntil(() => isEndWave);
         yield return StartCoroutine(SpawnWave7());
-        yield return StartCoroutine(SpawnWave8());
 
         // All waves have been spawned
         Debug.Log("All waves completed!");
@@ -113,210 +148,170 @@ public class Map02_EnemySpawner : MonoBehaviour
     private IEnumerator SpawnWave1()
     {
         currentWave = 1;
-        SpawnGoblins(3);
-        timeSinceLastSpawn = 0f;
+        SpawnEnemies1(3);
         yield return waitFor7Seconds;
 
-        SpawnGoblins(3);
-        timeSinceLastSpawn = 0f;
+        SpawnEnemies1(3);
         yield return waitFor10Seconds;
 
-        SpawnGoblins(5);
-        timeSinceLastSpawn = 0f;
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
     }
 
     private IEnumerator SpawnWave2()
     {
-        if (isSpawning)
-        {
-            currentWave = 2;
-            SpawnGoblins(5);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave2");
+        currentWave = 2;
+        isStartWave = true;
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor6Seconds;
 
-            SpawnGoblins(5);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor6Seconds;
 
-            SpawnGoblins(5);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
+        EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave3()
     {
-        if (isSpawning)
-        {
-            currentWave = 3;
-            SpawnOrcs(2);
-            timeSinceLastSpawn = 0f;
-            yield return null;
+        yield return new WaitUntil(() => isSpawning);
+        currentWave = 3;
+        SpawnEnemies2(2);
+        yield return null;
 
-            SpawnGoblins(8);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor5Seconds;
+        SpawnEnemies1(5);
+        yield return waitFor5Seconds;
 
-            SpawnOrcs(2);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        enemiesLeftToSpawn = 2;
+        SpawnEnemies2(2);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
+        EndWave();
     }
 
     private IEnumerator SpawnWave4()
     {
-        if (isSpawning)
-        {
-            currentWave = 4;
-            SpawnWolfs(3);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor7Seconds;
+        yield return new WaitUntil(() => isSpawning);
+        currentWave = 4;
+        SpawnEnemies3(3);
+        yield return waitFor7Seconds;
 
-            SpawnWolfs(3);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        enemiesLeftToSpawn = 3;
+        SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
+        EndWave();
     }
 
     private IEnumerator SpawnWave5()
     {
-        if (isSpawning)
-        {
-            currentWave = 5;
-            SpawnOrcs(6);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        yield return new WaitUntil(() => isSpawning);
+        currentWave = 5;
+        SpawnEnemies2(5);
+        yield return waitFor6Seconds;
 
-            SpawnGoblins(8);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        SpawnEnemies1(6);
+        yield return waitFor6Seconds;
 
-            SpawnGoblins(8);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
+        EndWave();
     }
 
     private IEnumerator SpawnWave6()
     {
-        if (isSpawning)
-        {
-            currentWave = 6;
-            SpawnOrcs(6);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        yield return new WaitUntil(() => isSpawning);
+        currentWave = 6;
+        enemiesLeftToSpawn = 6;
+        SpawnEnemies2(6);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
 
-            SpawnWolfs(3);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor4Seconds;
+        enemiesLeftToSpawn = 3;
+        SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor4Seconds;
 
-            SpawnGoblins(10);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor6Seconds;
+        enemiesLeftToSpawn = 10;
+        SpawnEnemies1(10);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor6Seconds;
 
-            SpawnWolfs(3);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        enemiesLeftToSpawn = 3;
+        SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
+        EndWave();
     }
 
     private IEnumerator SpawnWave7()
     {
-        if (isSpawning)
-        {
-            currentWave = 7;
-            SpawnWolfs(5);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor3Seconds;
+        yield return new WaitUntil(() => isSpawning);
+        currentWave = 7;
+        SpawnEnemies3(4);
+        yield return waitFor3Seconds;
 
-            SpawnWolfs(5);
-            timeSinceLastSpawn = 0f;
-            yield return waitFor5Seconds;
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies3(4);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor5Seconds;
 
-            SpawnOrcs(10);
-            timeSinceLastSpawn = 0f;
-            yield return null;
+        enemiesLeftToSpawn = 10;
+        SpawnEnemies2(10);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
 
-            SpawnGoblins(12);
-            timeSinceLastSpawn = 0f;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
+        SpawnEnemies1(10);
+        EndWave();
     }
 
-    private IEnumerator SpawnWave8()
-    {
-        if (isSpawning)
-        {
-            currentWave = 8;
-            EndWave();
-        }
-        else
-        {
-            yield return new WaitUntil(() => isSpawning);
-        }
-    }
-
-    private void SpawnGoblins(int count)
+    private void SpawnEnemies1(int count)
     {
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.8f : 1f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 0));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 0));
         }
     }
 
-    private void SpawnOrcs(int count)
+    private void SpawnEnemies2(int count)
     {
         enemiesPerSecond = (count >= 20 || count < 10) ? 0.5f : 0.7f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 1));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 1));
         }
     }
 
-    private void SpawnWolfs(int count)
+    private void SpawnEnemies3(int count)
     {
         enemiesPerSecond = 0.25f;
         for (int i = 0; i < count; i++)
         {
-            StartCoroutine(WaitFor(1f / enemiesPerSecond, 2));
+            StartCoroutine(WaitFor(i * (1f / enemiesPerSecond), 2));
         }
-    }
-
-    private void SpawnBoss()
-    {
-        StartCoroutine(WaitFor(10, 3));
     }
 
     private IEnumerator WaitFor(float time, int type)
     {
         yield return new WaitForSeconds(time);
-        Instantiate(enemyPrefabs[0], LevelManager.main.startPoint.position, Quaternion.identity);
+        Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
+        LevelManager.onEnemySpawn.Invoke();
+        enemiesLeftToSpawn--;
     }
 }
-
