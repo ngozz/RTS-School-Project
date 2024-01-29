@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 25
   maxHealth: 25
-  currencyWorth: 50
+  currencyWorth: 30
   healthBar: {fileID: 3655445054695203645}
 --- !u!95 &209949992509045634
 Animator:
