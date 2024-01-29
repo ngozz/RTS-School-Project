@@ -529,8 +529,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5327440271039189809}
-  moveSpeed: 0.55
+  attackDamage: 5
+  moveSpeed: 0.15
   livesTaken: 15
+  ks: {fileID: 0}
+  animator: {fileID: 0}
+  attackInterval: 0
 --- !u!50 &5327440271039189809
 Rigidbody2D:
   serializedVersion: 4
@@ -570,10 +574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1d5a9913d6d479bb6857fadb935680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 1000
+  maxHealth: 1000
   currencyWorth: 200
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 4510141516702242829}
 --- !u!95 &8563026532510157214
 Animator:
   serializedVersion: 5

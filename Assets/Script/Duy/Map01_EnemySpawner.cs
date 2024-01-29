@@ -27,6 +27,7 @@ public class Map01_EnemySpawner : MonoBehaviour
     private bool isStartWave = false;
     private bool isEndLastWave = false;
     private LevelManager levelManager;
+    private int enemiesLeftToSpawn;
 
     private WaitForSeconds waitFor7Seconds = new WaitForSeconds(7f);
     private WaitForSeconds waitFor6Seconds = new WaitForSeconds(6f);
@@ -154,7 +155,10 @@ public class Map01_EnemySpawner : MonoBehaviour
         SpawnEnemies1(3);
         yield return waitFor10Seconds;
 
+        enemiesLeftToSpawn = 5;
         SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn==0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -165,13 +169,20 @@ public class Map01_EnemySpawner : MonoBehaviour
         Debug.Log("Start Wave2");
         currentWave = 2;
         isStartWave = true;
+        enemiesLeftToSpawn = 5;
         SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
+        enemiesLeftToSpawn = 5;
         SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
+        enemiesLeftToSpawn = 5;
         SpawnEnemies1(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -188,7 +199,10 @@ public class Map01_EnemySpawner : MonoBehaviour
         SpawnEnemies1(8);
         yield return waitFor5Seconds;
 
+        enemiesLeftToSpawn = 2;
         SpawnEnemies2(2);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -202,7 +216,10 @@ public class Map01_EnemySpawner : MonoBehaviour
         SpawnEnemies3(3);
         yield return waitFor7Seconds;
 
+        enemiesLeftToSpawn = 3;
         SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -219,7 +236,10 @@ public class Map01_EnemySpawner : MonoBehaviour
         SpawnEnemies1(8);
         yield return waitFor6Seconds;
 
+        enemiesLeftToSpawn = 8;
         SpawnEnemies1(8);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -239,7 +259,10 @@ public class Map01_EnemySpawner : MonoBehaviour
         SpawnEnemies1(10);
         yield return waitFor6Seconds;
 
+        enemiesLeftToSpawn = 3;
         SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
         yield return waitFor3Seconds;
     }
@@ -296,5 +319,6 @@ public class Map01_EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(time);
         Instantiate(enemyPrefabs[type], LevelManager.main.startPoint.position, Quaternion.identity);
         LevelManager.onEnemySpawn.Invoke();
+        enemiesLeftToSpawn--;
     }
 }
