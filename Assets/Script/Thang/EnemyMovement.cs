@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private int livesTaken;
     
-    public KnightStats ks;
+    private KnightStats ks;
     private Transform target;
     private int pathIndex = 0;
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1238510667556730872}
   - component: {fileID: 5907150367362573170}
   - component: {fileID: 2359966150321259682}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3391717096217715166}
   - component: {fileID: 5094137212820412062}
   - component: {fileID: 4510141516702242829}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6999539398330809901}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 4709667255440227834}
   - component: {fileID: 9092861645671113711}
   - component: {fileID: 4591118608285021805}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 1811361871722562588}
   - component: {fileID: 7560611072640695117}
   - component: {fileID: 8539500610561694055}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,9 +406,9 @@ GameObject:
   - component: {fileID: 5327440271039189809}
   - component: {fileID: -7408967514100081452}
   - component: {fileID: 8563026532510157214}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Boss-1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +469,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 6f3f5297598ea42a9a7b5fa965d5d976, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -530,10 +530,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5327440271039189809}
   attackDamage: 5
-  moveSpeed: 0.15
+  moveSpeed: 0.24
   livesTaken: 15
   ks: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 8563026532510157214}
   attackInterval: 0
 --- !u!50 &5327440271039189809
 Rigidbody2D:
