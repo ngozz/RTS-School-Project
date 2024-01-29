@@ -3281,6 +3281,7 @@ GameObject:
   - component: {fileID: 1049546252}
   - component: {fileID: 1049546251}
   - component: {fileID: 1049546253}
+  - component: {fileID: 1049546254}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -3351,6 +3352,20 @@ MonoBehaviour:
   btnSpawnEnemiesSooner: {fileID: 2116053737}
   timerSpawnSooner: {fileID: 64566778}
   Wave: {fileID: 1113222711}
+--- !u!114 &1049546254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049546250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06504ff031944d14387b80c500a2740a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 1093376904}
+  lm: {fileID: 1049546251}
 --- !u!1 &1052059049
 GameObject:
   m_ObjectHideFlags: 0
