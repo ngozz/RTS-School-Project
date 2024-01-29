@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,10 +37,32 @@ public class Bullet : MonoBehaviour
         rb.velocity = direction * bulletSpeed;
     }
 
+
+    void Update()
+    {
+        // Kiểm tra nếu đạn thoát khỏi màn hình
+        if (IsOutOfScreen())
+        {
+            // Hủy đạn khi thoát khỏi màn hình
+            Destroy(gameObject);
+        }
+    }
+
+
     private void OnCollisionEnter2D(Collision2D other) //check collision
     {
         //Take Health from enemy
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         Destroy(gameObject);
+    }
+
+    bool IsOutOfScreen()
+    {
+        // Lấy vị trí của đạn trong không gian màn hình
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+
+        // Kiểm tra nếu đạn thoát khỏi màn hình
+        return screenPosition.x < 0 || screenPosition.x > Screen.width ||
+               screenPosition.y < 0 || screenPosition.y > Screen.height;
     }
 }

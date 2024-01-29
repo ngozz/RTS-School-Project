@@ -169,17 +169,17 @@ public class Map02_EnemySpawner : MonoBehaviour
         Debug.Log("Start Wave2");
         currentWave = 2;
         isStartWave = true;
-        enemiesLeftToSpawn = 5;
+        enemiesLeftToSpawn = 4;
         SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
-        enemiesLeftToSpawn = 5;
+        enemiesLeftToSpawn = 4;
         SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
-        enemiesLeftToSpawn = 5;
+        enemiesLeftToSpawn = 4;
         SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
