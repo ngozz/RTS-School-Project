@@ -3345,9 +3345,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 4922535264010646555, guid: 10cb66eddff1b4b71a32d99160060a43, type: 3}
-  - {fileID: 1353429249381020825, guid: d119a73bb24c53844b647b925ced1559, type: 3}
-  - {fileID: 4841142372708206094, guid: 00286a8241e3222409f6478222e9a6cb, type: 3}
+  - {fileID: 4922535264010646555, guid: 9be52cb6aaf971847beb6f4ba6d44662, type: 3}
+  - {fileID: 1353429249381020825, guid: c9bd82b2b39a8714388182fa61ca2c8f, type: 3}
+  - {fileID: 4841142372708206094, guid: cb9d24ecc4dabbe41b969f51d06fca7d, type: 3}
   btnSpawnEnemiesSoonerFirst: {fileID: 5942821350025702828}
   btnSpawnEnemiesSooner: {fileID: 2116053737}
   timerSpawnSooner: {fileID: 64566778}
