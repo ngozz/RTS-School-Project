@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -55,12 +55,14 @@ public class Turret : MonoBehaviour
         {
             target = null;
         } else {
+            // Tăng thời gian đến khi bắn dựa trên thời gian thực tế đã trôi qua (Time.deltaTime)
             timeUntilFire += Time.deltaTime;
 
+            // Kiểm tra xem đã đến lúc bắn hay chưa (dựa trên tần suất bắn mỗi giây - bps)
             if (timeUntilFire >= 1f / bps)
             {
                 Shoot();
-                timeUntilFire = 0f;
+                timeUntilFire = 0f;// Đặt thời gian đến khi bắn về 0 để bắt đầu đếm lại cho lần bắn tiếp theo
             }
         }
     }
@@ -75,6 +77,7 @@ public class Turret : MonoBehaviour
 
     private void FindTarget()
     {
+        // Sử dụng CircleCastAll để kiểm tra các đối tượng trong phạm vi và trả về mảng các hit
         RaycastHit2D[] hits = Physics2D.CircleCastAll(turretRotationPoint.position, targetingRange, (Vector2)turretRotationPoint.position, 0f, enemyMask);
 
         if (hits.Length > 0)
@@ -90,9 +93,11 @@ public class Turret : MonoBehaviour
 
     private void RotateTowardTarget()
     {
+        // Tính góc quay giữa vị trí hiện tại của đầu pháo và vị trí của mục tiêu
         float angle = Mathf.Atan2(target.position.y - turretRotationPoint.position.y, target.position.x - turretRotationPoint.position.x) * Mathf.Rad2Deg - 90f;
 
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+        // Quay từ góc hiện tại đến góc mới
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
@@ -124,7 +129,7 @@ public class Turret : MonoBehaviour
             bool isClickedOnOption = false;
             foreach (Transform option in towerSelectionInstance.transform)
             {
-                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos))
+                if (option.GetComponent<Collider2D>().OverlapPoint(mousePos)) // kiểm tra chồng lấp với 1 đối tượng collider 2D khác
                 {
                     isClickedOnOption = true;
                     break;

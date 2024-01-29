@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour
         currency = 300;
     }
 
+    //sử dụng chung cho các map, đếm số enemy còn lại
     private void EnemyDestroyed()
     {
         Debug.Log("Kill enemy");
