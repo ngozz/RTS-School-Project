@@ -3352,6 +3352,7 @@ MonoBehaviour:
   btnSpawnEnemiesSooner: {fileID: 2116053737}
   timerSpawnSooner: {fileID: 64566778}
   Wave: {fileID: 1113222711}
+  gameCompleteUI: {fileID: 611821830}
 --- !u!114 &1049546254
 MonoBehaviour:
   m_ObjectHideFlags: 0

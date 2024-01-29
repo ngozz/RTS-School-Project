@@ -347,7 +347,7 @@ MonoBehaviour:
   moveSpeed: 0.6
   livesTaken: 1
   ks: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 2700905457572824959}
   attackInterval: 0
 --- !u!50 &732175826958514109
 Rigidbody2D:

@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Attack()
     {
-        animator.Play("Attack",0,0);
+        animator.Play("Attack");
         //Wait interval
         yield return new WaitForSeconds(attackInterval);
         //Attack again
@@ -77,7 +77,7 @@ public class EnemyMovement : MonoBehaviour
         {
             //detectedKnight = null;
             StopCoroutine(attackOrder);
-            animator.Play("New Animation");
+            //animator.Play("New Animation");
         }
     }
 
