@@ -212,10 +212,14 @@ PrefabInstance:
     - target: {fileID: 3190664193505190325, guid: eaa74b4a0b5e7f648b921fe4de01719c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1232770939}
+      objectReference: {fileID: 1232770941}
     - target: {fileID: 3190664193505190325, guid: eaa74b4a0b5e7f648b921fe4de01719c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SpawnEnemiesSooner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3190664193505190325, guid: eaa74b4a0b5e7f648b921fe4de01719c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Map02_EnemySpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5077079309532195874, guid: eaa74b4a0b5e7f648b921fe4de01719c, type: 3}
       propertyPath: m_Pivot.x
@@ -4809,8 +4813,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1232770937}
   - component: {fileID: 1232770938}
-  - component: {fileID: 1232770939}
   - component: {fileID: 1232770940}
+  - component: {fileID: 1232770941}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -4862,27 +4866,6 @@ MonoBehaviour:
   Life: {fileID: 2084994989}
   Gold: {fileID: 1351867567}
   enemiesAlive: 0
---- !u!114 &1232770939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232770936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6acc1ec4d54a904c82e119a8d7c511c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 4922535264010646555, guid: 10cb66eddff1b4b71a32d99160060a43, type: 3}
-  - {fileID: 1353429249381020825, guid: d119a73bb24c53844b647b925ced1559, type: 3}
-  - {fileID: 4841142372708206094, guid: 00286a8241e3222409f6478222e9a6cb, type: 3}
-  btnSpawnEnemiesSoonerFirst: {fileID: 58824158}
-  btnSpawnEnemiesSooner: {fileID: 1352648770}
-  timerSpawnSooner: {fileID: 1536497330}
-  Wave: {fileID: 534333459}
-  gameCompleteUI: {fileID: 2125841137}
 --- !u!114 &1232770940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4897,6 +4880,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 985466762}
   lm: {fileID: 1232770938}
+--- !u!114 &1232770941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232770936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c63a633ea1072124ab1e689a7f979708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 4922535264010646555, guid: 10cb66eddff1b4b71a32d99160060a43, type: 3}
+  - {fileID: 1353429249381020825, guid: d119a73bb24c53844b647b925ced1559, type: 3}
+  - {fileID: 4841142372708206094, guid: 00286a8241e3222409f6478222e9a6cb, type: 3}
+  btnSpawnEnemiesSoonerFirst: {fileID: 58824158}
+  btnSpawnEnemiesSooner: {fileID: 1352648770}
+  timerSpawnSooner: {fileID: 1536497330}
+  Wave: {fileID: 534333459}
+  gameCompleteUI: {fileID: 2125841137}
 --- !u!1001 &1260589350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5541,14 +5545,14 @@ PrefabInstance:
     - target: {fileID: 2595163326465405675, guid: f4a04b548df6f264c9eb4c76069391b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1232770939}
+      objectReference: {fileID: 1232770941}
     - target: {fileID: 2595163326465405675, guid: f4a04b548df6f264c9eb4c76069391b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SpawnEnemiesSooner
       objectReference: {fileID: 0}
     - target: {fileID: 2595163326465405675, guid: f4a04b548df6f264c9eb4c76069391b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Map01_EnemySpawner, Assembly-CSharp
+      value: Map02_EnemySpawner, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5669775018831004220, guid: f4a04b548df6f264c9eb4c76069391b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5978,6 +5982,10 @@ PrefabInstance:
     - target: {fileID: 1613521188657170984, guid: 2ab24d06c5eb5bb42aaa1cb1e0640e4d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966915997839593238, guid: 2ab24d06c5eb5bb42aaa1cb1e0640e4d, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4327820565615800322, guid: 2ab24d06c5eb5bb42aaa1cb1e0640e4d, type: 3}
       propertyPath: m_Name
