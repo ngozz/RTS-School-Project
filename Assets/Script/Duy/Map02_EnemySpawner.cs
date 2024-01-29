@@ -148,6 +148,7 @@ public class Map02_EnemySpawner : MonoBehaviour
     private IEnumerator SpawnWave1()
     {
         currentWave = 1;
+        isStartWave = true;
         SpawnEnemies1(3);
         yield return waitFor7Seconds;
 
@@ -159,6 +160,7 @@ public class Map02_EnemySpawner : MonoBehaviour
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave2()
@@ -168,17 +170,17 @@ public class Map02_EnemySpawner : MonoBehaviour
         currentWave = 2;
         isStartWave = true;
         enemiesLeftToSpawn = 5;
-        SpawnEnemies1(5);
+        SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
         enemiesLeftToSpawn = 5;
-        SpawnEnemies1(5);
+        SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
         enemiesLeftToSpawn = 5;
-        SpawnEnemies1(5);
+        SpawnEnemies1(4);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
         EndWave();
@@ -188,11 +190,13 @@ public class Map02_EnemySpawner : MonoBehaviour
     private IEnumerator SpawnWave3()
     {
         yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave3");
         currentWave = 3;
+        isStartWave = true;
         SpawnEnemies2(2);
-        yield return null;
+        yield return waitFor5Seconds;
 
-        SpawnEnemies1(5);
+        SpawnEnemies1(6);
         yield return waitFor5Seconds;
 
         enemiesLeftToSpawn = 2;
@@ -200,12 +204,15 @@ public class Map02_EnemySpawner : MonoBehaviour
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave4()
     {
         yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave4");
         currentWave = 4;
+        isStartWave = true;
         SpawnEnemies3(3);
         yield return waitFor7Seconds;
 
@@ -214,41 +221,37 @@ public class Map02_EnemySpawner : MonoBehaviour
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave5()
     {
         yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave5");
         currentWave = 5;
-        SpawnEnemies2(5);
+        isStartWave = true;
+        SpawnEnemies2(4);
         yield return waitFor6Seconds;
 
         SpawnEnemies1(6);
         yield return waitFor6Seconds;
 
-        enemiesLeftToSpawn = 5;
-        SpawnEnemies1(5);
+        enemiesLeftToSpawn = 8;
+        SpawnEnemies1(8);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave6()
     {
         yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave6");
         currentWave = 6;
+        isStartWave = true;
         enemiesLeftToSpawn = 6;
         SpawnEnemies2(6);
-        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
-        yield return waitFor3Seconds;
-
-        enemiesLeftToSpawn = 3;
-        SpawnEnemies3(3);
-        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
-        yield return waitFor4Seconds;
-
-        enemiesLeftToSpawn = 10;
-        SpawnEnemies1(10);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor6Seconds;
 
@@ -256,18 +259,31 @@ public class Map02_EnemySpawner : MonoBehaviour
         SpawnEnemies3(3);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
+
+        SpawnEnemies1(10);
+        yield return waitFor10Seconds;
+
+        enemiesLeftToSpawn = 3;
+        SpawnEnemies3(3);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
+        yield return waitFor3Seconds;
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private IEnumerator SpawnWave7()
     {
         yield return new WaitUntil(() => isSpawning);
+        Debug.Log("Start Wave7");
         currentWave = 7;
-        SpawnEnemies3(4);
+        isStartWave = true;
+        enemiesLeftToSpawn = 5;
+        SpawnEnemies3(5);
+        yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
 
         enemiesLeftToSpawn = 5;
-        SpawnEnemies3(4);
+        SpawnEnemies3(5);
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor5Seconds;
 
@@ -276,8 +292,9 @@ public class Map02_EnemySpawner : MonoBehaviour
         yield return new WaitUntil(() => enemiesLeftToSpawn == 0);
         yield return waitFor3Seconds;
 
-        SpawnEnemies1(10);
+        SpawnEnemies1(12);
         EndWave();
+        yield return waitFor3Seconds;
     }
 
     private void SpawnEnemies1(int count)
