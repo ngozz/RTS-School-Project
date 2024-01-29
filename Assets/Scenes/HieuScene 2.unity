@@ -3984,9 +3984,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8956226590237371776, guid: d807cda3dccf76640bbcb3c7b2e1b0ba, type: 3}
-        m_TargetAssemblyTypeName: MapSelection, Assembly-CSharp
-        m_MethodName: OpenScene2
+      - m_Target: {fileID: 6596307323480235047, guid: f9874060a383a914eb660313c65c3a16, type: 3}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
+        m_MethodName: OpenScene6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
